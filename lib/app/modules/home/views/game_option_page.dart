@@ -7,6 +7,7 @@ import 'package:gold/app/data/constant/assets_constant.dart';
 import 'package:gold/app/modules/home/models/game_model.dart';
 import 'package:gold/app/modules/home/views/create_bet_widget.dart';
 import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 // import '/home/claude/app_colors.dart'; // Import the new color theme
 import '../../../core/app_color.dart';
 

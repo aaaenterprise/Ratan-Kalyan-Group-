@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:intl/intl.dart';
 
 import '../controllers/transaction_controller.dart';
@@ -13,7 +14,7 @@ class TransactionView extends GetView<TransactionController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6B1C5C),
+        backgroundColor: const AppColors.primary,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -59,9 +60,9 @@ class TransactionView extends GetView<TransactionController> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: AppColors.background,
                   border: Border(
-                    bottom: BorderSide(color: Colors.grey[300]!, width: 1),
+                    bottom: BorderSide(color: AppColors.border!, width: 1),
                   ),
                 ),
                 child: const Row(
@@ -73,7 +74,7 @@ class TransactionView extends GetView<TransactionController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                       ),
                     ),
@@ -84,7 +85,7 @@ class TransactionView extends GetView<TransactionController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -96,7 +97,7 @@ class TransactionView extends GetView<TransactionController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -116,9 +117,9 @@ class TransactionView extends GetView<TransactionController> {
                     return Container(
                       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       decoration: BoxDecoration(
-                        color: index % 2 == 0 ? Colors.white : Colors.grey[50],
+                        color: index % 2 == 0 ? Colors.white : AppColors.surface,
                         border: Border(
-                          bottom: BorderSide(color: Colors.grey[200]!, width: 0.5),
+                          bottom: BorderSide(color: AppColors.border!, width: 0.5),
                         ),
                       ),
                       child: Column(
@@ -136,8 +137,8 @@ class TransactionView extends GetView<TransactionController> {
                                           : Icons.arrow_upward,
                                       size: 16,
                                       color: isCredit
-                                          ? Colors.green.shade600
-                                          : Colors.red.shade600,
+                                          ? AppColors.success
+                                          : AppColors.error,
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
@@ -145,8 +146,8 @@ class TransactionView extends GetView<TransactionController> {
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: isCredit
-                                            ? Colors.green.shade600
-                                            : Colors.red.shade600,
+                                            ? AppColors.success
+                                            : AppColors.error,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -162,8 +163,8 @@ class TransactionView extends GetView<TransactionController> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: isCredit
-                                        ? Colors.green.shade700
-                                        : Colors.red.shade700,
+                                        ? AppColors.successDark
+                                        : AppColors.errorDark,
                                     fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.center,
@@ -177,7 +178,7 @@ class TransactionView extends GetView<TransactionController> {
                                   _formatDateForTable(transaction),
                                   style: const TextStyle(
                                     fontSize: 14,
-                                    color: Colors.black87,
+                                    color: AppColors.textPrimary,
                                     fontWeight: FontWeight.w500,
                                   ),
                                   textAlign: TextAlign.center,
@@ -196,7 +197,7 @@ class TransactionView extends GetView<TransactionController> {
                                   Icon(
                                     Icons.description_outlined,
                                     size: 14,
-                                    color: Colors.grey[600],
+                                    color: AppColors.textSecondary,
                                   ),
                                   const SizedBox(width: 6),
                                   Expanded(
@@ -204,7 +205,7 @@ class TransactionView extends GetView<TransactionController> {
                                       transaction.description ?? "",
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Colors.grey[600],
+                                        color: AppColors.textSecondary,
                                         fontStyle: FontStyle.italic,
                                       ),
                                     ),
@@ -246,13 +247,13 @@ class TransactionView extends GetView<TransactionController> {
           Icon(
             Icons.account_balance_wallet_outlined,
             size: 80,
-            color: Colors.grey[400],
+            color: AppColors.textSecondary,
           ),
           const SizedBox(height: 20),
           Text(
             "No Transactions Found",
             style: TextStyle(
-              color: Colors.grey[600],
+              color: AppColors.textSecondary,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -261,7 +262,7 @@ class TransactionView extends GetView<TransactionController> {
           Text(
             "Your transaction history will appear here",
             style: TextStyle(
-              color: Colors.grey[500],
+              color: AppColors.textSecondary,
               fontSize: 14,
             ),
           ),

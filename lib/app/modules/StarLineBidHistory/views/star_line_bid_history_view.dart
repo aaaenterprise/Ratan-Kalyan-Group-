@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
 
 // import 'package:get/get.dart';
-// import 'package:gold/app/data/constant/color_constant.dart';
+// import 'package:gold/app/core/app_color.dart';
 
 // import '../controllers/star_line_bid_history_controller.dart';
 
@@ -20,7 +20,7 @@
 //           return Visibility(
 //             replacement: Center(
 //                 child: CircularProgressIndicator(
-//               color: ColorConstant.primaryColor,
+//               color: AppColors.primary,
 //             )),
 //             visible: !controller.isLoading,
 //             child: Visibility(
@@ -36,7 +36,7 @@
 //                       shape: BeveledRectangleBorder(
 //                         // borderRadius: BorderRadius.all(Radius.circular(5)),
 //                         side: BorderSide(
-//                             color: ColorConstant.primaryColor, width: 2.5),
+//                             color: AppColors.primary, width: 2.5),
 //                       ),
 //                       child: SizedBox(
 //                         height: 140,
@@ -46,7 +46,7 @@
 //                             mainAxisAlignment: MainAxisAlignment.spaceAround,
 //                             children: [
 //                               Card(
-//                                 color: ColorConstant.primaryColor,
+//                                 color: AppColors.primary,
 //                                 shape: ContinuousRectangleBorder(
 //                                     borderRadius: BorderRadius.circular(25)),
 //                                 child: SizedBox(
@@ -119,7 +119,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:intl/intl.dart';
 
 
@@ -138,8 +139,8 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              ColorConstant.primaryColor,
-              ColorConstant.darkBackground,
+              AppColors.primary,
+              AppColors.primaryDark,
             ],
           ),
         ),
@@ -160,7 +161,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CircularProgressIndicator(
-                              color: ColorConstant.goldColor,
+                              color: AppColors.secondary,
                               strokeWidth: 3,
                             ),
                             const SizedBox(height: 20),
@@ -226,7 +227,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                   ),
                   Text(
@@ -234,7 +235,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.redColor,
+                      color: AppColors.error,
                     ),
                   ),
                 ],
@@ -264,7 +265,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
               },
               icon: Icon(
                 Icons.filter_list,
-                color: ColorConstant.goldColor,
+                color: AppColors.secondary,
                 size: 22,
               ),
               tooltip: "Filter bids",
@@ -290,14 +291,14 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
             child: Icon(
               Icons.history,
               size: 80,
-              color: ColorConstant.goldColor.withOpacity(0.7),
+              color: AppColors.secondary.withOpacity(0.7),
             ),
           ),
           const SizedBox(height: 20),
           Text(
             "No Bid History Found",
             style: TextStyle(
-              color: ColorConstant.goldColor,
+              color: AppColors.secondary,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -316,13 +317,11 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: ColorConstant.goldGradient,
-                ),
+                gradient: AppColors.secondaryGradient,
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                    color: ColorConstant.goldColor.withOpacity(0.3),
+                    color: AppColors.secondary.withOpacity(0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -370,7 +369,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: AppColors.shadowMedium,
                 blurRadius: 8,
                 spreadRadius: 1,
                 offset: const Offset(0, 4),
@@ -385,8 +384,8 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      ColorConstant.primaryColor,
-                      ColorConstant.primaryColor.withOpacity(0.9),
+                      AppColors.primary,
+                      AppColors.primary.withOpacity(0.9),
                     ],
                   ),
                   borderRadius: const BorderRadius.only(
@@ -415,7 +414,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                             children: [
                               Icon(
                                 Icons.access_time,
-                                color: ColorConstant.goldColor,
+                                color: AppColors.secondary,
                                 size: 14,
                               ),
                               const SizedBox(width: 5),
@@ -449,7 +448,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                             label: "BET TYPE",
                             value: bet.betType ?? "N/A",
                             valueStyle: TextStyle(
-                              color: ColorConstant.primaryColor,
+                              color: AppColors.primary,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -460,7 +459,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                             label: "AMOUNT",
                             value: "₹${bet.betAmount ?? 0}",
                             valueStyle: TextStyle(
-                              color: ColorConstant.goldColor,
+                              color: AppColors.secondary,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -476,7 +475,7 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
                       label: "BET NUMBER",
                       value: bet.betNumber.toString(),
                       valueStyle: TextStyle(
-                        color: ColorConstant.primaryColor,
+                        color: AppColors.primary,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2,
@@ -509,10 +508,10 @@ class StarLineBidHistoryView extends GetView<StarLineBidHistoryController> {
           : EdgeInsets.zero,
       decoration: showBackground
           ? BoxDecoration(
-              color: ColorConstant.goldColor.withOpacity(0.1),
+              color: AppColors.secondary.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: ColorConstant.goldColor.withOpacity(0.3),
+                color: AppColors.secondary.withOpacity(0.3),
                 width: 1,
               ),
             )

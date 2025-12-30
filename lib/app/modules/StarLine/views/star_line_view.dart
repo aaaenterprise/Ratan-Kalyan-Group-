@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/modules/StarLine/views/game_option_page.dart';
 import 'package:gold/app/routes/app_pages.dart';
 
@@ -21,8 +21,8 @@ class StarLineView extends GetView<StarLineController> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              ColorConstant.primaryColor,
-              ColorConstant.darkBackground,
+              AppColors.primary,
+              AppColors.primaryDark,
             ],
           ),
         ),
@@ -80,7 +80,7 @@ class StarLineView extends GetView<StarLineController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                   ),
                   Text(
@@ -88,7 +88,7 @@ class StarLineView extends GetView<StarLineController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.redColor,
+                      color: AppColors.error,
                     ),
                   ),
                 ],
@@ -99,7 +99,7 @@ class StarLineView extends GetView<StarLineController> {
                 children: [
                   Icon(
                     Icons.star,
-                    color: ColorConstant.goldColor,
+                    color: AppColors.secondary,
                     size: 18,
                   ),
                   const SizedBox(width: 5),
@@ -120,13 +120,11 @@ class StarLineView extends GetView<StarLineController> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: ColorConstant.goldGradient,
-              ),
+              gradient: AppColors.secondaryGradient,
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                  color: ColorConstant.goldColor.withOpacity(0.3),
+                  color: AppColors.secondary.withOpacity(0.3),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -172,23 +170,23 @@ class StarLineView extends GetView<StarLineController> {
             label: "BID HISTORY",
             onPressed: () => Get.toNamed(Routes.STAR_LINE_BID_HISTORY),
             gradientColors: [
-              Colors.blue.shade600,
-              Colors.blue.shade800,
+              AppColors.info,
+              AppColors.infoDark,
             ],
           ),
           _buildActionButton(
             icon: Icons.monetization_on,
             label: "GAME RATE",
             onPressed: () => Get.toNamed(Routes.STAR_LINE_GAME_RATE),
-            gradientColors: ColorConstant.goldGradient,
+            gradientColors: [AppColors.secondary, AppColors.secondaryDark],
           ),
           _buildActionButton(
             icon: Icons.emoji_events,
             label: "WIN HISTORY",
             onPressed: () => Get.toNamed(Routes.STAR_LINE_WIN_HISTORY),
             gradientColors: [
-              Colors.green.shade600,
-              Colors.green.shade800,
+              AppColors.success,
+              AppColors.successDark,
             ],
           ),
         ],
@@ -259,7 +257,7 @@ class StarLineView extends GetView<StarLineController> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircularProgressIndicator(
-                  color: ColorConstant.goldColor,
+                  color: AppColors.secondary,
                   strokeWidth: 3,
                 ),
                 const SizedBox(height: 20),
@@ -289,7 +287,7 @@ class StarLineView extends GetView<StarLineController> {
                 Text(
                   "No Active Games Available",
                   style: TextStyle(
-                    color: ColorConstant.goldColor,
+                    color: AppColors.secondary,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -323,7 +321,7 @@ class StarLineView extends GetView<StarLineController> {
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.shadowMedium,
                     blurRadius: 8,
                     spreadRadius: 1,
                     offset: const Offset(0, 4),
@@ -337,12 +335,12 @@ class StarLineView extends GetView<StarLineController> {
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                     decoration: BoxDecoration(
                       border: Border.all(
-                                  color: ColorConstant.redColor,
+                                  color: AppColors.error,
                                   width: 2.5,),
                       gradient: LinearGradient(
                         colors: [
-                          ColorConstant.primaryColor,
-                          ColorConstant.primaryColor.withOpacity(0.9),
+                          AppColors.primary,
+                          AppColors.primary.withOpacity(0.9),
                         ],
                       ),
                       borderRadius: const BorderRadius.only(
@@ -381,7 +379,7 @@ class StarLineView extends GetView<StarLineController> {
                             Text(
                               game.gameName ?? "",
                               style: TextStyle(
-                                color: ColorConstant.goldColor,
+                                color: AppColors.secondary,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -393,7 +391,7 @@ class StarLineView extends GetView<StarLineController> {
                                 color: Colors.black38,
                                 borderRadius: BorderRadius.circular(15),
                                 border: Border.all(
-                                  color: ColorConstant.goldColor.withOpacity(0.3),
+                                  color: AppColors.secondary.withOpacity(0.3),
                                   width: 1,
                                 ),
                               ),
@@ -434,8 +432,8 @@ class StarLineView extends GetView<StarLineController> {
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
                                   color: isMarketRunning
-                                    ? Colors.green.withOpacity(0.2)
-                                    : Colors.red.withOpacity(0.2),
+                                    ? AppColors.success.withOpacity(0.2)
+                                    : AppColors.error.withOpacity(0.2),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
@@ -444,8 +442,8 @@ class StarLineView extends GetView<StarLineController> {
                                     : AssetsConstant.closeButton,
                                   width: 42,
                                   // color: isMarketRunning
-                                  //   ? Colors.green
-                                  //   : Colors.red,
+                                  //   ? AppColors.success
+                                  //   : AppColors.error,
                                 ),
                               ),
                             );
@@ -478,7 +476,7 @@ class StarLineView extends GetView<StarLineController> {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstant.primaryColor,
+                                  color: AppColors.primary,
                                 ),
                               ),
                             ],
@@ -490,13 +488,13 @@ class StarLineView extends GetView<StarLineController> {
                           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                           decoration: BoxDecoration(
                             color: isMarketRunning
-                              ? Colors.green.withOpacity(0.1)
-                              : Colors.red.withOpacity(0.1),
+                              ? AppColors.success.withOpacity(0.1)
+                              : AppColors.error.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
                               color: isMarketRunning
-                                ? Colors.green.withOpacity(0.5)
-                                : Colors.red.withOpacity(0.5),
+                                ? AppColors.success.withOpacity(0.5)
+                                : AppColors.error.withOpacity(0.5),
                               width: 1,
                             ),
                           ),
@@ -508,8 +506,8 @@ class StarLineView extends GetView<StarLineController> {
                                   : Icons.pause_circle_outline,
                                 size: 18,
                                 color: isMarketRunning
-                                  ? Colors.green
-                                  : Colors.red,
+                                  ? AppColors.success
+                                  : AppColors.error,
                               ),
                               const SizedBox(width: 5),
                               Text(
@@ -518,8 +516,8 @@ class StarLineView extends GetView<StarLineController> {
                                   : "Market Closed",
                                 style: TextStyle(
                                   color: isMarketRunning
-                                    ? Colors.green
-                                    : Colors.red,
+                                    ? AppColors.success
+                                    : AppColors.error,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14,
                                 ),

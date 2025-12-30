@@ -92,7 +92,7 @@ class _CreateBetWidgetState extends State<CreateBetWidget> {
   /// - White text and icons
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: const Color(0xFF6B1C5C), // Purple theme color
+      backgroundColor: AppColors.primary, // Purple theme color
       elevation: 0, // Flat design
       
       // Custom back button that navigates to home screen
@@ -152,7 +152,7 @@ class _CreateBetWidgetState extends State<CreateBetWidget> {
         color: Colors.white.withOpacity(0.05), // Semi-transparent white background
         borderRadius: BorderRadius.circular(15), // Rounded corners
         border: Border.all(
-          color: ColorConstant.goldColor.withOpacity(0.2), // Gold border
+          color: AppColors.secondary.withOpacity(0.2), // Gold border
           width: 1,
         ),
       ),
@@ -229,7 +229,7 @@ class _CreateBetWidgetState extends State<CreateBetWidget> {
           Icon(
             Icons.error_outline,
             size: 48,
-            color: ColorConstant.errorColor,
+            color: AppColors.error,
           ),
           
           const SizedBox(height: 15), // Spacing between icon and text

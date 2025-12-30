@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/game_rate_controller.dart';
 
@@ -148,7 +149,7 @@ class GameRateView extends GetView<GameRateController> {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
-                color: Colors.black,
+                color: AppColors.textPrimary,
               ),
             ),
             Container(
@@ -162,7 +163,7 @@ class GameRateView extends GetView<GameRateController> {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: AppColors.textPrimary,
                 ),
               ),
             ),

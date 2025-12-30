@@ -6,7 +6,7 @@ import 'package:flutter_upi_india/flutter_upi_india.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/url.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/routes/app_pages.dart';
 
 
@@ -27,7 +27,7 @@ class AddPointView extends GetView<AddPointController> {
         child: Scaffold(
           backgroundColor: const Color(0xFFF5F3F0),
           appBar: AppBar(
-            backgroundColor: const Color(0xFF6B1C5C),
+            backgroundColor: const AppColors.primary,
             elevation: 0,
             leading: IconButton(
               onPressed: () => Get.offAllNamed(Routes.HOME),
@@ -84,7 +84,7 @@ class AddPointView extends GetView<AddPointController> {
             const SizedBox(height: 8),
             Text(
               '*Please enter minimum ${controller.userController.setting?.minimumDeposit} Rs',
-              style: const TextStyle(color: Colors.red, fontSize: 14),
+              style: const TextStyle(color: AppColors.error, fontSize: 14),
             ),
             const SizedBox(height: 20),
             _buildAmountButtons(),
@@ -171,7 +171,7 @@ class AddPointView extends GetView<AddPointController> {
         child: Container(
           height: 50,
           decoration: BoxDecoration(
-            color: const Color(0xFF6B1C5C),
+            color: const AppColors.primary,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(
@@ -249,13 +249,13 @@ class AddPointView extends GetView<AddPointController> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: isSelected ? const Color(0xFF6B1C5C) : Colors.grey.shade300,
+            color: isSelected ? const AppColors.primary : Colors.grey.shade300,
             width: isSelected ? 2 : 1,
           ),
         ),
         child: Row(
           children: [
-            Icon(icon, size: 24, color: const Color(0xFF6B1C5C)),
+            Icon(icon, size: 24, color: const AppColors.primary),
             const SizedBox(width: 12),
             Expanded(
               child: Text(
@@ -263,7 +263,7 @@ class AddPointView extends GetView<AddPointController> {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: AppColors.textPrimary,
                 ),
               ),
             ),
@@ -271,7 +271,7 @@ class AddPointView extends GetView<AddPointController> {
               value: value,
               groupValue: groupValue,
               onChanged: onChanged,
-              activeColor: const Color(0xFF6B1C5C),
+              activeColor: const AppColors.primary,
             ),
           ],
         ),
@@ -294,7 +294,7 @@ class AddPointView extends GetView<AddPointController> {
           }
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF6B1C5C),
+          backgroundColor: const AppColors.primary,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           elevation: 0,
         ),
@@ -413,7 +413,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: AppColors.shadowMedium,
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -428,18 +428,18 @@ class _QRCodeTabState extends State<_QRCodeTab>
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF6B1C5C).withOpacity(0.1),
+                    color: const AppColors.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.qr_code_2, color: Color(0xFF6B1C5C), size: 20),
+                      Icon(Icons.qr_code_2, color: AppColors.primary, size: 20),
                       SizedBox(width: 8),
                       Text(
                         'Scan & Pay',
                         style: TextStyle(
-                          color: Color(0xFF6B1C5C),
+                          color: AppColors.primary,
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
                         ),
@@ -457,7 +457,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
                     width: 200,
                     child: Center(
                       child: CircularProgressIndicator(
-                        color: Color(0xFF6B1C5C),
+                        color: AppColors.primary,
                       ),
                     ),
                   )
@@ -466,7 +466,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: const Color(0xFF6B1C5C).withOpacity(0.3),
+                        color: const AppColors.primary.withOpacity(0.3),
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
@@ -486,7 +486,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    color: AppColors.textPrimary,
                   ),
                 ),
 
@@ -531,9 +531,9 @@ class _QRCodeTabState extends State<_QRCodeTab>
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.orange.shade50,
+              color: AppColors.warning.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.orange.shade200),
+              border: Border.all(color: AppColors.warning.withOpacity(0.3)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -551,7 +551,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.orange.shade800,
+                        color: AppColors.warningDark,
                       ),
                     ),
                   ],
@@ -620,17 +620,17 @@ class _QRCodeTabState extends State<_QRCodeTab>
                 Clipboard.setData(ClipboardData(text: upiID));
                 CustomWidget.showSnackBar('UPI ID copied to clipboard');
               },
-              icon: const Icon(Icons.copy, color: Color(0xFF6B1C5C), size: 20),
+              icon: const Icon(Icons.copy, color: AppColors.primary, size: 20),
               label: const Text(
                 'Copy UPI ID',
                 style: TextStyle(
-                  color: Color(0xFF6B1C5C),
+                  color: AppColors.primary,
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Color(0xFF6B1C5C), width: 1.5),
+                side: const BorderSide(color: AppColors.primary, width: 1.5),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -644,15 +644,15 @@ class _QRCodeTabState extends State<_QRCodeTab>
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade50,
+              color: AppColors.error.shade50,
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.red.shade200),
+              border: Border.all(color: AppColors.error.shade200),
             ),
             child: Row(
               children: [
                 Icon(
                   Icons.warning_amber_rounded,
-                  color: Colors.red.shade700,
+                  color: AppColors.errorDark,
                   size: 20,
                 ),
                 const SizedBox(width: 10),
@@ -661,7 +661,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
                     'Points will be added only after admin verification. Please share payment proof on WhatsApp.',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Colors.red.shade700,
+                      color: AppColors.errorDark,
                       height: 1.4,
                     ),
                   ),
@@ -726,8 +726,9 @@ class _QRCodeTabState extends State<_QRCodeTab>
 // import 'package:flutter_upi_india/flutter_upi_india.dart';
 // import 'package:get/get.dart';
 // import 'package:gold/app/core/widgets/widgets.dart';
-// import 'package:gold/app/data/constant/color_constant.dart';
+// import 'package:gold/app/core/app_color.dart';
 // import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 
 // import '../controllers/add_point_controller.dart';
 
@@ -744,7 +745,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //       child: Scaffold(
 //         backgroundColor: const Color(0xFFF5F3F0), // Light cream background
 //         appBar: AppBar(
-//           backgroundColor: const Color(0xFF6B1C5C), // Purple color
+//           backgroundColor: const AppColors.primary, // Purple color
 //           elevation: 0,
 //           leading: IconButton(
 //             onPressed: () => Get.offAllNamed(Routes.HOME),
@@ -786,7 +787,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //              Text(
 //               '*Please enter minimum ${controller.userController.setting?.minimumDeposit} Rs',
 //               style: TextStyle(
-//                 color: Colors.red,
+//                 color: AppColors.error,
 //                 fontSize: 14,
 //               ),
 //             ),
@@ -828,7 +829,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
 //           style: const TextStyle(
 //             fontSize: 16,
-//             color: Colors.black,
+//             color: AppColors.textPrimary,
 //           ),
 //           decoration: const InputDecoration(
 //             border: InputBorder.none,
@@ -897,7 +898,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //         child: Container(
 //           height: 50,
 //           decoration: BoxDecoration(
-//             color: const Color(0xFF6B1C5C),
+//             color: const AppColors.primary,
 //             borderRadius: BorderRadius.circular(8),
 //           ),
 //           child: Center(
@@ -981,7 +982,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //             Icon(
 //               icon,
 //               size: 24,
-//               color: const Color(0xFF6B1C5C),
+//               color: const AppColors.primary,
 //             ),
 //             const SizedBox(width: 12),
 //             Expanded(
@@ -990,7 +991,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //                 style: const TextStyle(
 //                   fontSize: 16,
 //                   fontWeight: FontWeight.w500,
-//                   color: Colors.black,
+//                   color: AppColors.textPrimary,
 //                 ),
 //               ),
 //             ),
@@ -1022,7 +1023,7 @@ class _QRCodeTabState extends State<_QRCodeTab>
 //           }
 //         },
 //         style: ElevatedButton.styleFrom(
-//           backgroundColor: const Color(0xFF6B1C5C),
+//           backgroundColor: const AppColors.primary,
 //           shape: RoundedRectangleBorder(
 //             borderRadius: BorderRadius.circular(8),
 //           ),

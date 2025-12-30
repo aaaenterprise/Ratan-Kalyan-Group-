@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/url.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/how_to_play_controller.dart';
 
@@ -9,12 +10,12 @@ class HowToPlayView extends GetView<HowToPlayController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('How To Play '), centerTitle: true, backgroundColor:  Color(0xFF6B1C5C) ,),
+      appBar: AppBar(title: const Text('How To Play '), centerTitle: true, backgroundColor:  AppColors.primary ,),
       body: Center(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             fixedSize: Size(MediaQuery.sizeOf(context).width * 0.7, 55),
-            backgroundColor: const Color(0xFF6B1C5C),
+            backgroundColor: const AppColors.primary,
             shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

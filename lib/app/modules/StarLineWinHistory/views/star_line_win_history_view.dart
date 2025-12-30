@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/star_line_win_history_controller.dart';
 import 'package:intl/intl.dart';
@@ -18,8 +19,8 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              ColorConstant.primaryColor,
-              ColorConstant.darkBackground,
+              AppColors.primary,
+              AppColors.primaryDark,
             ],
           ),
         ),
@@ -83,7 +84,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                   ),
                   Text(
@@ -91,7 +92,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.redColor,
+                      color: AppColors.error,
                     ),
                   ),
                 ],
@@ -121,7 +122,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
               },
               icon: Icon(
                 Icons.filter_list,
-                color: ColorConstant.goldColor,
+                color: AppColors.secondary,
                 size: 22,
               ),
               tooltip: "Filter winnings",
@@ -147,14 +148,14 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
             child: Icon(
               Icons.emoji_events_outlined,
               size: 80,
-              color: ColorConstant.goldColor.withOpacity(0.7),
+              color: AppColors.secondary.withOpacity(0.7),
             ),
           ),
           const SizedBox(height: 20),
           Text(
             "No Winnings Yet",
             style: TextStyle(
-              color: ColorConstant.goldColor,
+              color: AppColors.secondary,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -173,13 +174,11 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: ColorConstant.goldGradient,
-                ),
+                gradient: AppColors.secondaryGradient,
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                    color: ColorConstant.goldColor.withOpacity(0.3),
+                    color: AppColors.secondary.withOpacity(0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -227,7 +226,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: AppColors.shadowMedium,
                 blurRadius: 8,
                 spreadRadius: 1,
                 offset: const Offset(0, 4),
@@ -242,8 +241,8 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Colors.green.shade700,
-                      Colors.green.shade800,
+                      AppColors.successDark,
+                      AppColors.successDark,
                     ],
                   ),
                   borderRadius: const BorderRadius.only(
@@ -272,7 +271,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                             children: [
                               Icon(
                                 Icons.access_time,
-                                color: ColorConstant.goldColor,
+                                color: AppColors.secondary,
                                 size: 14,
                               ),
                               const SizedBox(width: 5),
@@ -294,7 +293,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                         color: Colors.white.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: ColorConstant.goldColor.withOpacity(0.5),
+                          color: AppColors.secondary.withOpacity(0.5),
                           width: 1,
                         ),
                       ),
@@ -321,11 +320,11 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: ColorConstant.goldColor.withOpacity(0.1),
+                        color: AppColors.secondary.withOpacity(0.1),
                       ),
                       child: Icon(
                         Icons.emoji_events,
-                        color: ColorConstant.goldColor,
+                        color: AppColors.secondary,
                         size: 30,
                       ),
                     ),
@@ -337,10 +336,10 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                       decoration: BoxDecoration(
-                        color: Colors.green.shade50,
+                        color: AppColors.success.shade50,
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: Colors.green.shade200,
+                          color: AppColors.success.shade200,
                           width: 1,
                         ),
                       ),
@@ -349,7 +348,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                           Text(
                             "WINNING AMOUNT",
                             style: TextStyle(
-                              color: Colors.green.shade800,
+                              color: AppColors.successDark,
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1,
@@ -359,7 +358,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                           Text(
                             "₹${winHistory.winningAmount ?? 0}",
                             style: TextStyle(
-                              color: Colors.green.shade800,
+                              color: AppColors.successDark,
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
@@ -378,7 +377,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                             label: "BID AMOUNT",
                             value: "₹${winHistory.betAmount ?? 0}",
                             valueStyle: TextStyle(
-                              color: ColorConstant.primaryColor,
+                              color: AppColors.primary,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -389,7 +388,7 @@ class StarLineWinHistoryView extends GetView<StarLineWinHistoryController> {
                             label: "PROFIT",
                             value: "₹${(winHistory.winningAmount ?? 0) - (winHistory.betAmount ?? 0)}",
                             valueStyle: TextStyle(
-                              color: Colors.green.shade700,
+                              color: AppColors.successDark,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),

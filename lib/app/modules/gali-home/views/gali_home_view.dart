@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/modules/gali-home/views/game_option_page.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/routes/app_pages.dart' show Routes;
 import '../controllers/gali_home_controller.dart';
 
@@ -17,7 +18,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
     Size size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: const Color(
           0xFF6B1C5C,
@@ -199,7 +200,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: const Border(
-          left: BorderSide(color: Color(0xFF6B1C5C), width: 4),
+          left: BorderSide(color: AppColors.primary, width: 4),
         ),
         boxShadow: [
           BoxShadow(
@@ -221,7 +222,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: AppColors.textPrimary,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -229,7 +230,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
                   status,
                   style: TextStyle(
                     fontSize: 14,
-                    color: isActive ? Colors.green : Colors.red,
+                    color: isActive ? AppColors.success : AppColors.error,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -237,7 +238,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
                   const SizedBox(height: 4),
                   Text(
                     timing,
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
                   ),
                 ],
               ],
@@ -250,7 +251,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
                   ? Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: const Color(0xFF6B1C5C),
+                        color: const AppColors.primary,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(20),
@@ -270,14 +271,14 @@ class GaliHomeView extends GetView<GaliHomeController> {
                         Container(
                           width: 1,
                           height: 40,
-                          color: const Color(0xFF6B1C5C),
+                          color: const AppColors.primary,
                         ),
 
                         Container(
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: const Color(0xFF6B1C5C),
+                            color: const AppColors.primary,
                             borderRadius: BorderRadius.circular(25),
                           ),
                           child: IconButton(
@@ -328,7 +329,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
               Icon(
                 icon,
                 color:
-                    onPressed != null ? const Color(0xFF6B1C5C) : Colors.grey,
+                    onPressed != null ? const AppColors.primary : Colors.grey,
                 size: 20,
               ),
               const SizedBox(height: 2),
@@ -337,7 +338,7 @@ class GaliHomeView extends GetView<GaliHomeController> {
                 style: TextStyle(
                   fontSize: 10,
                   color:
-                      onPressed != null ? const Color(0xFF6B1C5C) : Colors.grey,
+                      onPressed != null ? const AppColors.primary : Colors.grey,
                   fontWeight: FontWeight.w500,
                 ),
               ),

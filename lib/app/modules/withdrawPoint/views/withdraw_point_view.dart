@@ -3,8 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/custom_validation.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/withdraw_point_controller.dart';
 
@@ -21,7 +22,7 @@ class WithdrawPointView extends GetView<WithdrawPointController> {
       child: Scaffold(
         backgroundColor: const Color(0xFFF5F3F0), // Light cream background
         appBar: AppBar(
-          backgroundColor: const Color(0xFF6B1C5C), // Purple color
+          backgroundColor: const AppColors.primary, // Purple color
           elevation: 0,
           leading: IconButton(
             onPressed: () => Get.offAllNamed(Routes.HOME),
@@ -95,7 +96,7 @@ class WithdrawPointView extends GetView<WithdrawPointController> {
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           style: const TextStyle(
             fontSize: 16,
-            color: Colors.black,
+            color: AppColors.textPrimary,
           ),
           decoration: const InputDecoration(
             border: InputBorder.none,
@@ -145,7 +146,7 @@ class WithdrawPointView extends GetView<WithdrawPointController> {
                 icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
                 style: const TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: AppColors.textPrimary,
                 ),
                 items: const [
                   DropdownMenuItem(
@@ -190,7 +191,7 @@ class WithdrawPointView extends GetView<WithdrawPointController> {
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           style: const TextStyle(
             fontSize: 16,
-            color: Colors.black,
+            color: AppColors.textPrimary,
           ),
           decoration: const InputDecoration(
             border: InputBorder.none,
@@ -231,7 +232,7 @@ class WithdrawPointView extends GetView<WithdrawPointController> {
           }
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF6B1C5C),
+          backgroundColor: const AppColors.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),

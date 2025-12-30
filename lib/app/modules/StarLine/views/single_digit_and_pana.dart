@@ -6,9 +6,9 @@ import 'package:drop_down_search_field/drop_down_search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
 import 'package:gold/app/data/game_number/double_pana.dart';
 import 'package:gold/app/data/game_number/single_digit.dart';
 import 'package:gold/app/data/game_number/single_pana.dart';
@@ -137,11 +137,11 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.cardBackground,
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: AppColors.shadowMedium,
                   blurRadius: 8,
                   offset: const Offset(0, 3),
                 ),
@@ -156,7 +156,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: ColorConstant.primaryColor,
+                    color: AppColors.primary,
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -181,7 +181,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: ColorConstant.primaryColor,
+                    color: AppColors.primary,
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -201,46 +201,46 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                     return null;
                   },
                   style: TextStyle(
-                    color: ColorConstant.textDark,
+                    color: AppColors.textPrimary,
                     fontWeight: FontWeight.w500,
                   ),
                   decoration: InputDecoration(
                     hintText: "Enter your bid amount",
                     hintStyle: TextStyle(
-                      color: Colors.grey.shade400,
+                      color: AppColors.textSecondary,
                       fontSize: 14,
                     ),
-                    fillColor: Colors.grey.shade100,
+                    fillColor: AppColors.background,
                     filled: true,
                     prefixIcon: Icon(
                       Icons.account_balance_wallet_outlined,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                     contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.goldColor,
+                        color: AppColors.secondary,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.grey.shade300,
+                        color: AppColors.border,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.errorColor,
+                        color: AppColors.error,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.errorColor,
+                        color: AppColors.error,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
@@ -256,14 +256,14 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                       Icon(
                         Icons.account_balance_wallet,
                         size: 16,
-                        color: ColorConstant.goldColor,
+                        color: AppColors.secondary,
                       ),
                       const SizedBox(width: 5),
                       Text(
                         "Available Balance: ",
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.grey.shade600,
+                          color: AppColors.textSecondary,
                         ),
                       ),
                       Text(
@@ -271,7 +271,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: ColorConstant.goldColor,
+                          color: AppColors.secondary,
                         ),
                       ),
                     ],
@@ -315,12 +315,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                       }
                     },
                     width: MediaQuery.sizeOf(context).width * 0.6,
-                    gradient: LinearGradient(
-                      colors: [
-                        ColorConstant.accentColor,
-                        ColorConstant.goldColor,
-                      ],
-                    ),
+                    gradient: AppColors.accentGradient,
                   ),
                 ),
               ],
@@ -334,11 +329,11 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
             Container(
               margin: const EdgeInsets.only(bottom: 20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.cardBackground,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.shadowMedium,
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),
@@ -358,17 +353,17 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: ColorConstant.primaryColor,
+                            color: AppColors.primary,
                             letterSpacing: 0.5,
                           ),
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
-                            color: ColorConstant.goldColor.withOpacity(0.1),
+                            color: AppColors.secondary.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
-                              color: ColorConstant.goldColor.withOpacity(0.3),
+                              color: AppColors.secondary.withOpacity(0.3),
                               width: 1,
                             ),
                           ),
@@ -377,7 +372,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
-                              color: ColorConstant.goldColor,
+                              color: AppColors.secondary,
                             ),
                           ),
                         ),
@@ -389,10 +384,10 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     decoration: BoxDecoration(
-                      color: ColorConstant.primaryColor.withOpacity(0.05),
+                      color: AppColors.primary.withOpacity(0.05),
                       border: Border(
                         bottom: BorderSide(
-                          color: Colors.grey.shade300,
+                          color: AppColors.border,
                           width: 1,
                         ),
                       ),
@@ -406,7 +401,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: ColorConstant.primaryColor,
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -417,7 +412,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: ColorConstant.primaryColor,
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -428,7 +423,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: ColorConstant.primaryColor,
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -443,7 +438,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                     itemCount: bettingList.length,
                     separatorBuilder: (context, index) => Divider(
                       height: 1,
-                      color: Colors.grey.shade200,
+                      color: AppColors.border,
                     ),
                     itemBuilder: (context, index) {
                       return Container(
@@ -455,10 +450,10 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                                 decoration: BoxDecoration(
-                                  color: ColorConstant.goldColor.withOpacity(0.1),
+                                  color: AppColors.secondary.withOpacity(0.1),
                                   borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
-                                    color: ColorConstant.goldColor.withOpacity(0.3),
+                                    color: AppColors.secondary.withOpacity(0.3),
                                     width: 1,
                                   ),
                                 ),
@@ -468,7 +463,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
-                                    color: ColorConstant.primaryColor,
+                                    color: AppColors.primary,
                                   ),
                                 ),
                               ),
@@ -493,11 +488,11 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                                     onPressed: () => removeBetByIndex(index),
                                     icon: Icon(
                                       Icons.delete_outline,
-                                      color: Colors.red.shade600,
+                                      color: AppColors.error,
                                       size: 20,
                                     ),
                                     style: IconButton.styleFrom(
-                                      backgroundColor: Colors.red.withOpacity(0.1),
+                                      backgroundColor: AppColors.error.withOpacity(0.1),
                                       padding: const EdgeInsets.all(8),
                                     ),
                                   ),
@@ -514,7 +509,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                   Container(
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: ColorConstant.primaryColor.withOpacity(0.03),
+                      color: AppColors.primary.withOpacity(0.03),
                       borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15),
@@ -528,7 +523,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: ColorConstant.primaryColor,
+                            color: AppColors.primary,
                           ),
                         ),
                         Text(
@@ -536,7 +531,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: ColorConstant.goldColor,
+                            color: AppColors.secondary,
                           ),
                         ),
                       ],
@@ -565,12 +560,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                 },
                 width: double.infinity,
                 height: 55,
-                gradient: LinearGradient(
-                  colors: [
-                    ColorConstant.primaryColor,
-                    ColorConstant.primaryColor.withOpacity(0.8),
-                  ],
-                ),
+                gradient: AppColors.primaryGradient,
               ),
             ),
         ],
@@ -595,44 +585,44 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
         decoration: InputDecoration(
           hintText: "Select $name",
           hintStyle: TextStyle(
-            color: Colors.grey.shade400,
+            color: AppColors.textSecondary,
             fontSize: 14,
           ),
-          fillColor: Colors.grey.shade100,
+          fillColor: AppColors.background,
           filled: true,
           prefixIcon: Icon(
             Icons.numbers,
-            color: ColorConstant.goldColor,
+            color: AppColors.secondary,
           ),
           suffixIcon: Icon(
             Icons.arrow_drop_down_circle_outlined,
-            color: ColorConstant.accentColor,
+            color: AppColors.accent,
           ),
           contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: ColorConstant.goldColor,
+              color: AppColors.secondary,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.grey.shade300,
+              color: AppColors.border,
               width: 1.5,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: ColorConstant.errorColor,
+              color: AppColors.error,
               width: 1.5,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: ColorConstant.errorColor,
+              color: AppColors.error,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(12),
@@ -654,7 +644,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
           decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Colors.grey.shade200,
+                color: AppColors.border,
                 width: 1,
               ),
             ),
@@ -663,7 +653,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
             suggestion,
             style: TextStyle(
               fontSize: 16,
-              color: ColorConstant.textDark,
+              color: AppColors.textPrimary,
             ),
           ),
         );
@@ -674,11 +664,11 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
       transitionBuilder: (context, suggestionsBox, controller) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.cardBackground,
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: AppColors.shadowMedium,
                 blurRadius: 8,
                 offset: const Offset(0, 3),
               ),
@@ -728,29 +718,29 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
           gradient: isSelected && isEnabled
             ? LinearGradient(
                 colors: [
-                  value == 0 ? Colors.green.shade600 : Colors.blue.shade600,
-                  value == 0 ? Colors.green.shade800 : Colors.blue.shade800,
+                  value == 0 ? AppColors.success : AppColors.info,
+                  value == 0 ? AppColors.successDark : AppColors.infoDark,
                 ],
               )
             : null,
           color: isSelected || !isEnabled
             ? isEnabled
                 ? null
-                : Colors.grey.shade300
-            : Colors.grey.shade100,
+                : AppColors.backgroundSubtle
+            : AppColors.background,
           borderRadius: BorderRadius.circular(12),
           border: isSelected
             ? null
             : Border.all(
                 color: isEnabled
-                  ? Colors.grey.shade400
-                  : Colors.grey.shade300,
+                  ? AppColors.border
+                  : AppColors.borderSubtle,
                 width: 1.5,
               ),
           boxShadow: isSelected && isEnabled
             ? [
                 BoxShadow(
-                  color: (value == 0 ? Colors.green : Colors.blue).withOpacity(0.3),
+                  color: (value == 0 ? AppColors.success : AppColors.info).withOpacity(0.3),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -761,17 +751,17 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              value == 0 
+              value == 0
                 ? Icons.wb_sunny_outlined
                 : Icons.nightlight_outlined,
               size: 18,
               color: isSelected && isEnabled
-                ? Colors.white
+                ? AppColors.textOnPrimary
                 : isEnabled
                   ? value == 0
-                    ? Colors.green.shade700
-                    : Colors.blue.shade700
-                  : Colors.grey.shade600,
+                    ? AppColors.successDark
+                    : AppColors.infoDark
+                  : AppColors.textSecondary,
             ),
             const SizedBox(width: 8),
             Text(
@@ -780,12 +770,12 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: isSelected && isEnabled
-                  ? Colors.white
+                  ? AppColors.textOnPrimary
                   : isEnabled
                     ? value == 0
-                      ? Colors.green.shade700
-                      : Colors.blue.shade700
-                    : Colors.grey.shade600,
+                      ? AppColors.successDark
+                      : AppColors.infoDark
+                    : AppColors.textSecondary,
               ),
             ),
             if (!isEnabled)
@@ -794,7 +784,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
                 child: Icon(
                   Icons.lock,
                   size: 14,
-                  color: Colors.grey.shade600,
+                  color: AppColors.textSecondary,
                 ),
               ),
           ],
@@ -819,7 +809,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: ColorConstant.goldColor.withOpacity(0.3),
+            color: AppColors.secondary.withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -840,7 +830,7 @@ class _SingleDigitAndPanaState extends State<StarLineSingleDigitAndPana>
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppColors.textOnPrimary,
             letterSpacing: 1,
           ),
         ),
