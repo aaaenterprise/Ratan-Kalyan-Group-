@@ -1,0 +1,2 @@
+D:/Work Space/GOLD KALYAN/gold copy/android/app/.cxx/Debug/4q206c46/x86/CMakeFiles/edit_cache.dir
+D:/Work Space/GOLD KALYAN/gold copy/android/app/.cxx/Debug/4q206c46/x86/CMakeFiles/rebuild_cache.dir

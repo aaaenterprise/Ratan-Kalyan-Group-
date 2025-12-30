@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "570098274707",
+    "project_id": "gold-kalyan-29917",
+    "storage_bucket": "gold-kalyan-29917.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570098274707:android:4233b6436bb402c4d1d866",
+        "android_client_info": {
+          "package_name": "com.gold.kalyan.matkaplay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkFzX4qgHIFr5CydxROE4JcUP2vZTZjwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

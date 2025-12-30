@@ -1,0 +1,2 @@
+D:/Work Space/GOLD KALYAN/gold/android/app/.cxx/RelWithDebInfo/6s2981tz/x86/CMakeFiles/edit_cache.dir
+D:/Work Space/GOLD KALYAN/gold/android/app/.cxx/RelWithDebInfo/6s2981tz/x86/CMakeFiles/rebuild_cache.dir
