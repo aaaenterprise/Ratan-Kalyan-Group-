@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:gold/app/core/custom_validation.dart';
 import 'package:gold/app/core/url.dart' show UrlLauncher;
 import 'package:gold/app/data/constant/assets_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import 'package:gold/app/routes/app_pages.dart';
 
@@ -15,7 +16,7 @@ class RegisterView extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: SizedBox(
           height: Get.height,
@@ -33,7 +34,7 @@ class RegisterView extends GetView<RegisterController> {
                         width: 220,
                         height: 220,
                         decoration: const BoxDecoration(
-                          color: Color(0xFF4B0E57), // Purple shade
+                          gradient: AppColors.primaryGradient,
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(180),
                           ),
@@ -44,7 +45,7 @@ class RegisterView extends GetView<RegisterController> {
                           errorBuilder: (context, error, stackTrace) {
                             return const Icon(
                               Icons.account_circle,
-                              color: Colors.white,
+                              color: AppColors.textOnPrimary,
                               size: 100,
                             );
                           },
@@ -60,17 +61,17 @@ class RegisterView extends GetView<RegisterController> {
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF2C2C2C),
+                            color: AppColors.textPrimary,
                           ),
                         ),
                         const SizedBox(height: 5),
 
                         // Welcome subtitle
-                        Text(
+                        const Text(
                           "Welcome to play",
                           style: TextStyle(
                             fontSize: 18,
-                            color: Colors.grey.shade600,
+                            color: AppColors.textSecondary,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -92,15 +93,25 @@ class RegisterView extends GetView<RegisterController> {
                     maxLength: 25,
                     decoration: InputDecoration(
                       hintText: "Enter your full name",
+                      hintStyle: const TextStyle(color: AppColors.textTertiary),
                       contentPadding: const EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 20,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.border),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.border),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.accent, width: 2),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: AppColors.cardBackground,
                       counterText: "", // Hide character counter
                     ),
                   ),
@@ -119,15 +130,25 @@ class RegisterView extends GetView<RegisterController> {
                             CustomValidation.phoneValidator(phone: value!),
                     decoration: InputDecoration(
                       hintText: "Enter your mobile number",
+                      hintStyle: const TextStyle(color: AppColors.textTertiary),
                       contentPadding: const EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 20,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.border),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.border),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.accent, width: 2),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: AppColors.cardBackground,
                     ),
                   ),
                 ),
@@ -146,15 +167,25 @@ class RegisterView extends GetView<RegisterController> {
                     // keyboardType: TextInputType.pass,
                     decoration: InputDecoration(
                       hintText: "Create your Password",
+                      hintStyle: const TextStyle(color: AppColors.textTertiary),
                       contentPadding: const EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 20,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.border),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.border),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: AppColors.accent, width: 2),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: AppColors.cardBackground,
                       counterText: "", // Hide character counter
                     ),
                   ),
@@ -165,25 +196,39 @@ class RegisterView extends GetView<RegisterController> {
                 // Register button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF4B0E57),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      minimumSize: const Size(double.infinity, 50),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: AppColors.primaryGradient,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.primary.withOpacity(0.3),
+                          blurRadius: 12,
+                          offset: const Offset(0, 6),
+                        ),
+                      ],
                     ),
-                    onPressed: () {
-                      if (controller.signupFormKey.currentState!.validate()) {
-                        controller.userRegister();
-                      }
-                    },
-                    child: const Text(
-                      "REGISTER",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        minimumSize: const Size(double.infinity, 50),
+                      ),
+                      onPressed: () {
+                        if (controller.signupFormKey.currentState!.validate()) {
+                          controller.userRegister();
+                        }
+                      },
+                      child: const Text(
+                        "REGISTER",
+                        style: TextStyle(
+                          color: AppColors.textOnPrimary,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -196,7 +241,7 @@ class RegisterView extends GetView<RegisterController> {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Color(0xFF4B0E57)),
+                      side: const BorderSide(color: AppColors.primary, width: 2),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -207,7 +252,11 @@ class RegisterView extends GetView<RegisterController> {
                     },
                     child: const Text(
                       "Already have an account? Login",
-                      style: TextStyle(fontSize: 16, color: Color(0xFF4B0E57)),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
@@ -224,7 +273,7 @@ class RegisterView extends GetView<RegisterController> {
                     "Contact Us With",
                     style: TextStyle(
                       fontSize: 16,
-                      color: Color(0xFF4B0E57),
+                      color: AppColors.accent,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

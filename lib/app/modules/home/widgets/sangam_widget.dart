@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/data/game_number/double_pana.dart';
 import 'package:gold/app/data/game_number/single_digit.dart';
 import 'package:gold/app/data/game_number/single_pana.dart';
@@ -14,6 +14,7 @@ import 'package:gold/app/data/game_number/triple_pana.dart';
 import 'package:gold/app/modules/home/controllers/home_controller.dart';
 import 'package:gold/app/modules/home/models/betting_history_model.dart';
 import 'package:gold/app/modules/home/models/game_model.dart';
+import 'package:gold/app/core/app_color.dart';
 
 const sangamArray = ["Half Sangam", "Full Sangam"];
 
@@ -65,11 +66,11 @@ class _SangamWidgetState extends State<SangamWidget> {
               margin: const EdgeInsets.only(bottom: 20),
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.cardBackground,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.shadowMedium,
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),
@@ -83,7 +84,7 @@ class _SangamWidgetState extends State<SangamWidget> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.primaryColor,
+                      color: AppColors.primary,
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -108,7 +109,7 @@ class _SangamWidgetState extends State<SangamWidget> {
                       ),
                       icon: Icon(
                         Icons.keyboard_arrow_down,
-                        color: ColorConstant.primaryColor,
+                        color: AppColors.primary,
                       ),
                       items: const [
                         DropdownMenuItem<int>(
@@ -157,11 +158,11 @@ class _SangamWidgetState extends State<SangamWidget> {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.cardBackground,
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: AppColors.shadowMedium,
                   blurRadius: 8,
                   offset: const Offset(0, 3),
                 ),
@@ -190,7 +191,7 @@ class _SangamWidgetState extends State<SangamWidget> {
                     return null;
                   },
                   style: TextStyle(
-                    color: ColorConstant.textDark,
+                    color: AppColors.textPrimary,
                     fontWeight: FontWeight.w500,
                   ),
                   decoration: InputDecoration(
@@ -208,28 +209,28 @@ class _SangamWidgetState extends State<SangamWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.primaryColor,
+                        color: AppColors.primary,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.primaryColor,
+                        color: AppColors.primary,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.errorColor,
+                        color: AppColors.error,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.errorColor,
+                        color: AppColors.error,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
@@ -281,7 +282,7 @@ class _SangamWidgetState extends State<SangamWidget> {
                     },
                     width: MediaQuery.sizeOf(context).width * 0.8,
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF6B1C5C), Color(0xFF6B1C5C)],
+                      colors: [AppColors.primary, AppColors.primary],
                     ),
                   ),
                 ),
@@ -323,7 +324,7 @@ class _SangamWidgetState extends State<SangamWidget> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstant.primaryColor,
+                                  color: AppColors.primary,
                                 ),
                               ),
                             ),
@@ -344,11 +345,11 @@ class _SangamWidgetState extends State<SangamWidget> {
                                   onPressed: () => removeBetByIndex(index),
                                   icon: Icon(
                                     Icons.delete_outline,
-                                    color: Colors.red.shade600,
+                                    color: AppColors.error,
                                     size: 20,
                                   ),
                                   style: IconButton.styleFrom(
-                                    backgroundColor: Colors.red.withOpacity(
+                                    backgroundColor: AppColors.error.withOpacity(
                                       0.1,
                                     ),
                                     padding: const EdgeInsets.all(8),
@@ -384,7 +385,7 @@ class _SangamWidgetState extends State<SangamWidget> {
                 width: double.infinity,
                 height: 55,
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF6B1C5C), Color(0xFF6B1C5C)],
+                  colors: [AppColors.primary, AppColors.primary],
                 ),
               ),
             ),
@@ -409,7 +410,7 @@ class _SangamWidgetState extends State<SangamWidget> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: ColorConstant.goldColor.withOpacity(0.3),
+            color: AppColors.secondary.withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -430,7 +431,7 @@ class _SangamWidgetState extends State<SangamWidget> {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppColors.cardBackground,
             letterSpacing: 1,
           ),
         ),
@@ -453,8 +454,8 @@ class _SangamWidgetState extends State<SangamWidget> {
               isSelected
                   ? LinearGradient(
                     colors: [
-                      ColorConstant.goldColor,
-                      ColorConstant.accentColor,
+                      AppColors.secondary,
+                      AppColors.accent,
                     ],
                   )
                   : null,
@@ -468,7 +469,7 @@ class _SangamWidgetState extends State<SangamWidget> {
               isSelected
                   ? [
                     BoxShadow(
-                      color: ColorConstant.goldColor.withOpacity(0.3),
+                      color: AppColors.secondary.withOpacity(0.3),
                       blurRadius: 5,
                       offset: const Offset(0, 2),
                     ),
@@ -481,7 +482,7 @@ class _SangamWidgetState extends State<SangamWidget> {
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : ColorConstant.primaryColor,
+              color: isSelected ? Colors.white : AppColors.primary,
               letterSpacing: 0.3,
             ),
             textAlign: TextAlign.center,
@@ -567,7 +568,7 @@ class _SangamWidgetState extends State<SangamWidget> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: ColorConstant.primaryColor.withOpacity(0.8),
+            color: AppColors.primary.withOpacity(0.8),
           ),
         ),
         const SizedBox(height: 8),
@@ -581,11 +582,11 @@ class _SangamWidgetState extends State<SangamWidget> {
               filled: true,
               // prefixIcon: Icon(
               //   maxLength == 1 ? Icons.filter_1 : Icons.filter_3,
-              //   color: ColorConstant.goldColor,
+              //   color: AppColors.secondary,
               // ),
               // suffixIcon: Icon(
               //   Icons.arrow_drop_down_circle_outlined,
-              //   color: ColorConstant.accentColor,
+              //   color: AppColors.accent,
               // ),
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 18,
@@ -593,28 +594,28 @@ class _SangamWidgetState extends State<SangamWidget> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: ColorConstant.primaryColor,
+                  color: AppColors.primary,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: ColorConstant.primaryColor,
+                  color: AppColors.primary,
                   width: 1.5,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: ColorConstant.errorColor,
+                  color: AppColors.error,
                   width: 1.5,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: ColorConstant.errorColor,
+                  color: AppColors.error,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(12),
@@ -640,7 +641,7 @@ class _SangamWidgetState extends State<SangamWidget> {
               ),
               child: Text(
                 suggestion,
-                style: TextStyle(fontSize: 16, color: ColorConstant.textDark),
+                style: TextStyle(fontSize: 16, color: AppColors.textPrimary),
               ),
             );
           },
@@ -650,11 +651,11 @@ class _SangamWidgetState extends State<SangamWidget> {
           transitionBuilder: (context, suggestionsBox, controller) {
             return Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.cardBackground,
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.shadowMedium,
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),

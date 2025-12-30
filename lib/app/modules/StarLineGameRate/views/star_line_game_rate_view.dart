@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/star_line_game_rate_controller.dart';
 
@@ -16,7 +17,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [ColorConstant.primaryColor, ColorConstant.darkBackground],
+            colors: [AppColors.primary, AppColors.primaryDark],
           ),
         ),
         child: SafeArea(
@@ -68,7 +69,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                   ),
                   Text(
@@ -76,7 +77,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.redColor,
+                      color: AppColors.error,
                     ),
                   ),
                 ],
@@ -106,7 +107,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
               },
               icon: Icon(
                 Icons.info_outline,
-                color: ColorConstant.goldColor,
+                color: AppColors.secondary,
                 size: 22,
               ),
               tooltip: "Game Rate Information",
@@ -142,7 +143,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircularProgressIndicator(
-            color: ColorConstant.goldColor,
+            color: AppColors.secondary,
             strokeWidth: 3,
           ),
           const SizedBox(height: 20),
@@ -167,12 +168,12 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.2),
+              color: AppColors.error.withOpacity(0.2),
               shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.error_outline,
-              color: Colors.red.shade300,
+              color: AppColors.error.shade300,
               size: 60,
             ),
           ),
@@ -180,7 +181,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
           Text(
             "Something went wrong",
             style: TextStyle(
-              color: ColorConstant.goldColor,
+              color: AppColors.secondary,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -202,11 +203,11 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: ColorConstant.goldGradient),
+                gradient: AppColors.secondaryGradient,
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                    color: ColorConstant.goldColor.withOpacity(0.3),
+                    color: AppColors.secondary.withOpacity(0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -245,14 +246,14 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
           title: "Single Digit",
           rate: controller.gameRate?.singleDigit,
           iconPath: "assets/icons/single_digit.png", // Add your icon asset path
-          color: Colors.blue.shade700,
+          color: AppColors.infoDark,
         ),
 
         _buildRateCard(
           title: "Single Pana",
           rate: controller.gameRate?.singlePana,
           iconPath: "assets/icons/single_pana.png", // Add your icon asset path
-          color: Colors.green.shade700,
+          color: AppColors.successDark,
         ),
         _buildRateCard(
           title: "Double Pana",
@@ -264,7 +265,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
           title: "Triple Pana",
           rate: controller.gameRate?.triplePana,
           iconPath: "assets/icons/triple_pana.png", // Add your icon asset path
-          color: Colors.red.shade700,
+          color: AppColors.errorDark,
         ),
       ],
     );
@@ -278,7 +279,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
         color: Colors.white.withOpacity(0.1),
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
-          color: ColorConstant.goldColor.withOpacity(0.3),
+          color: AppColors.secondary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -287,12 +288,12 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: ColorConstant.goldColor.withOpacity(0.2),
+              color: AppColors.secondary.withOpacity(0.2),
               shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.currency_exchange,
-              color: ColorConstant.goldColor,
+              color: AppColors.secondary,
               size: 24,
             ),
           ),
@@ -304,7 +305,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                 Text(
                   "PAYOUT RATES",
                   style: TextStyle(
-                    color: ColorConstant.goldColor,
+                    color: AppColors.secondary,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 0.5,
@@ -340,7 +341,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: AppColors.shadowMedium,
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -390,7 +391,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.textDark,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                 ),
@@ -400,10 +401,10 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    color: ColorConstant.goldColor.withOpacity(0.1),
+                    color: AppColors.secondary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: ColorConstant.goldColor.withOpacity(0.3),
+                      color: AppColors.secondary.withOpacity(0.3),
                       width: 1,
                     ),
                   ),
@@ -419,7 +420,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                       ),
                       Icon(
                         Icons.arrow_right_alt,
-                        color: ColorConstant.goldColor,
+                        color: AppColors.secondary,
                         size: 20,
                       ),
                       Text(
@@ -427,7 +428,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: ColorConstant.goldColor,
+                          color: AppColors.secondary,
                         ),
                       ),
                     ],
@@ -473,7 +474,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: AppColors.shadowMedium,
                 blurRadius: 10,
                 offset: const Offset(0, 5),
               ),
@@ -485,12 +486,12 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: ColorConstant.goldColor.withOpacity(0.1),
+                  color: AppColors.secondary.withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   Icons.info_outline,
-                  color: ColorConstant.goldColor,
+                  color: AppColors.secondary,
                   size: 30,
                 ),
               ),
@@ -500,7 +501,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: ColorConstant.primaryColor,
+                  color: AppColors.primary,
                 ),
               ),
               const SizedBox(height: 15),
@@ -508,7 +509,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
                 "These rates show how much you can win for every ₹10 bet placed on different game types. Higher payouts usually mean lower odds of winning.",
                 style: TextStyle(
                   fontSize: 14,
-                  color: ColorConstant.textDark,
+                  color: AppColors.textPrimary,
                   height: 1.4,
                 ),
                 textAlign: TextAlign.center,
@@ -517,7 +518,7 @@ class StarLineGameRateView extends GetView<StarLineGameRateController> {
               TextButton(
                 onPressed: () => Get.back(),
                 style: TextButton.styleFrom(
-                  backgroundColor: ColorConstant.goldColor,
+                  backgroundColor: AppColors.secondary,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 30,
                     vertical: 10,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/gali_rate_controller.dart';
 
@@ -22,7 +23,7 @@ class GaliRateView extends GetView<GaliRateController> {
               return Visibility(
                 replacement: Center(
                   child: CircularProgressIndicator(
-                    color: ColorConstant.primaryColor,
+                    color: AppColors.primary,
                   ),
                 ),
                 visible: !controller.isLoading,
@@ -37,7 +38,7 @@ class GaliRateView extends GetView<GaliRateController> {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: ColorConstant.primaryColor,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(25.0)),
                         child: ListTile(
                           title: const Text(
@@ -59,7 +60,7 @@ class GaliRateView extends GetView<GaliRateController> {
 
                       Container(
                         decoration: BoxDecoration(
-                            color: ColorConstant.primaryColor,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(25.0)),
                         child: ListTile(
                           title: const Text(

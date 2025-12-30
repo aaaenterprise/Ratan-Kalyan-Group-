@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
 import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/game_option_controller.dart';
 

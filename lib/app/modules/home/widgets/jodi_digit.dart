@@ -6,11 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/data/game_number/double_digit.dart';
 import 'package:gold/app/modules/home/controllers/home_controller.dart';
 import 'package:gold/app/modules/home/models/betting_history_model.dart';
 import 'package:gold/app/modules/home/models/game_model.dart';
+import 'package:gold/app/core/app_color.dart';
 
 class JodiDigit extends StatefulWidget {
   final String gameType;
@@ -56,11 +57,11 @@ class _JodiDigitState extends State<JodiDigit> {
             height: 130,
             width: 250,
             decoration: BoxDecoration(
-              color: const Color(0xFF6B1C5C),
+              color: const AppColors.primary,
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: AppColors.shadowMedium,
                   blurRadius: 8,
                   offset: const Offset(0, 3),
                 ),
@@ -75,7 +76,7 @@ class _JodiDigitState extends State<JodiDigit> {
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.cardBackground,
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -83,7 +84,7 @@ class _JodiDigitState extends State<JodiDigit> {
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: Divider(
                     height: 1,
-                    color: Colors.white,
+                    color: AppColors.cardBackground,
                     thickness: 2.5,
                   ),
                 ),
@@ -92,7 +93,7 @@ class _JodiDigitState extends State<JodiDigit> {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.cardBackground,
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -125,7 +126,7 @@ class _JodiDigitState extends State<JodiDigit> {
                     return null;
                   },
                   style: TextStyle(
-                    color: ColorConstant.textDark,
+                    color: AppColors.textPrimary,
                     fontWeight: FontWeight.w500,
                   ),
                   decoration: InputDecoration(
@@ -143,28 +144,28 @@ class _JodiDigitState extends State<JodiDigit> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.primaryColor,
+                        color: AppColors.primary,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.primaryColor,
+                        color: AppColors.primary,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.errorColor,
+                        color: AppColors.error,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: ColorConstant.errorColor,
+                        color: AppColors.error,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(12),
@@ -214,7 +215,7 @@ class _JodiDigitState extends State<JodiDigit> {
                     },
                     width: MediaQuery.sizeOf(context).width * 0.8,
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF6B1C5C), Color(0xFF6B1C5C)],
+                      colors: [AppColors.primary, AppColors.primary],
                     ),
                   ),
                 ),
@@ -256,7 +257,7 @@ class _JodiDigitState extends State<JodiDigit> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstant.primaryColor,
+                                  color: AppColors.primary,
                                 ),
                               ),
                             ),
@@ -277,11 +278,11 @@ class _JodiDigitState extends State<JodiDigit> {
                                   onPressed: () => removeBetByIndex(index),
                                   icon: Icon(
                                     Icons.delete_outline,
-                                    color: Colors.red.shade600,
+                                    color: AppColors.error,
                                     size: 20,
                                   ),
                                   style: IconButton.styleFrom(
-                                    backgroundColor: Colors.red.withOpacity(
+                                    backgroundColor: AppColors.error.withOpacity(
                                       0.1,
                                     ),
                                     padding: const EdgeInsets.all(8),
@@ -317,7 +318,7 @@ class _JodiDigitState extends State<JodiDigit> {
                 width: double.infinity,
                 height: 55,
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF6B1C5C), Color(0xFF6B1C5C)],
+                  colors: [AppColors.primary, AppColors.primary],
                 ),
               ),
             ),
@@ -348,30 +349,30 @@ class _JodiDigitState extends State<JodiDigit> {
           filled: true,
           // prefixIcon: Icon(
           //   Icons.numbers,
-          //   color: ColorConstant.goldColor,
+          //   color: AppColors.secondary,
           // ),
           suffixIcon: Icon(
             Icons.arrow_drop_down_circle_outlined,
-            color: ColorConstant.accentColor,
+            color: AppColors.accent,
           ),
           contentPadding: const EdgeInsets.symmetric(
             vertical: 18,
             horizontal: 20,
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorConstant.primaryColor, width: 2),
+            borderSide: BorderSide(color: AppColors.primary, width: 2),
             borderRadius: BorderRadius.circular(12),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorConstant.primaryColor, width: 1.5),
+            borderSide: BorderSide(color: AppColors.primary, width: 1.5),
             borderRadius: BorderRadius.circular(12),
           ),
           errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorConstant.errorColor, width: 1.5),
+            borderSide: BorderSide(color: AppColors.error, width: 1.5),
             borderRadius: BorderRadius.circular(12),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorConstant.errorColor, width: 2),
+            borderSide: BorderSide(color: AppColors.error, width: 2),
             borderRadius: BorderRadius.circular(12),
           ),
           counter: const SizedBox.shrink(),
@@ -395,7 +396,7 @@ class _JodiDigitState extends State<JodiDigit> {
           ),
           child: Text(
             suggestion,
-            style: TextStyle(fontSize: 16, color: ColorConstant.textDark),
+            style: TextStyle(fontSize: 16, color: AppColors.textPrimary),
           ),
         );
       },
@@ -405,11 +406,11 @@ class _JodiDigitState extends State<JodiDigit> {
       transitionBuilder: (context, suggestionsBox, controller) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.cardBackground,
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: AppColors.shadowMedium,
                 blurRadius: 8,
                 offset: const Offset(0, 3),
               ),
@@ -474,7 +475,7 @@ class _JodiDigitState extends State<JodiDigit> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: ColorConstant.goldColor.withOpacity(0.3),
+            color: AppColors.secondary.withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -495,7 +496,7 @@ class _JodiDigitState extends State<JodiDigit> {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppColors.cardBackground,
             letterSpacing: 1,
           ),
         ),

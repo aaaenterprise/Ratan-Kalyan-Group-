@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
 import 'package:gold/app/modules/StarLine/models/star_line_game_model.dart';
 import 'package:gold/app/modules/StarLine/views/game_option_page.dart';
 import 'package:gold/app/modules/StarLine/views/single_digit_and_pana.dart';
@@ -37,14 +37,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
         height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              ColorConstant.primaryColor,
-              ColorConstant.darkBackground,
-            ],
-          ),
+          gradient: AppColors.primaryGradient,
         ),
         child: SafeArea(
           child: Column(
@@ -98,7 +91,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new_rounded,
-                color: Colors.white,
+                color: AppColors.textOnPrimary,
                 size: 20,
               ),
               tooltip: "Back to Game Options",
@@ -116,7 +109,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                   ),
                   Text(
@@ -124,7 +117,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.redColor,
+                      color: AppColors.error,
                     ),
                   ),
                 ],
@@ -134,7 +127,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
               Text(
                 widget.game.gameName ?? "",
                 style: TextStyle(
-                  color: ColorConstant.textSecondary,
+                  color: AppColors.textSecondary,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
@@ -146,13 +139,11 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: ColorConstant.goldGradient,
-              ),
+              gradient: AppColors.secondaryGradient,
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                  color: ColorConstant.goldColor.withOpacity(0.3),
+                  color: AppColors.secondary.withOpacity(0.3),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -170,7 +161,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                 Text(
                   "${widget.user.wallet?.toInt() ?? 0}",
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.textOnPrimary,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -217,7 +208,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: ColorConstant.goldColor.withOpacity(0.3),
+                    color: AppColors.secondary.withOpacity(0.3),
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(15),
@@ -230,7 +221,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: ColorConstant.goldColor,
+                        color: AppColors.secondary,
                         letterSpacing: 1,
                       ),
                     ),
@@ -239,9 +230,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                       height: 1,
                       width: 60,
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: ColorConstant.goldGradient,
-                        ),
+                        gradient: AppColors.secondaryGradient,
                       ),
                     ),
                     Text(
@@ -249,7 +238,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: AppColors.textOnPrimary,
                         letterSpacing: 0.5,
                       ),
                     ),
@@ -260,10 +249,10 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
+                        color: AppColors.cardBackground.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: ColorConstant.goldColor.withOpacity(0.2),
+                          color: AppColors.secondary.withOpacity(0.2),
                           width: 1,
                         ),
                       ),
@@ -273,7 +262,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                           Icon(
                             Icons.calendar_today_rounded,
                             size: 16,
-                            color: ColorConstant.goldColor,
+                            color: AppColors.secondary,
                           ),
                           const SizedBox(width: 8),
                           Text(
@@ -281,7 +270,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                              color: AppColors.textOnPrimary,
                             ),
                           ),
                         ],
@@ -315,9 +304,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                 width: 20,
                 height: 20,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: ColorConstant.goldGradient,
-                  ),
+                  gradient: AppColors.secondaryGradient,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                   ),
@@ -331,9 +318,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
                 width: 20,
                 height: 20,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: ColorConstant.goldGradient,
-                  ),
+                  gradient: AppColors.secondaryGradient,
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(20),
                   ),
@@ -357,10 +342,10 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: (isOpen ? Colors.green : Colors.blue).withOpacity(0.2),
+            color: (isOpen ? AppColors.success : AppColors.info).withOpacity(0.2),
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
-              color: (isOpen ? Colors.green : Colors.blue).withOpacity(0.3),
+              color: (isOpen ? AppColors.success : AppColors.info).withOpacity(0.3),
               width: 1,
             ),
           ),
@@ -369,7 +354,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: isOpen ? Colors.green : Colors.blue,
+              color: isOpen ? AppColors.success : AppColors.info,
             ),
           ),
         ),
@@ -379,7 +364,7 @@ class _CreateBetWidgetState extends State<StarLineCreateBetWidget> {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
+            color: AppColors.textOnPrimary,
           ),
         ),
       ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/star_line_chart_controller.dart';
 
@@ -18,8 +19,8 @@ class StarLineChartView extends GetView<StarLineChartController> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              ColorConstant.primaryColor,
-              ColorConstant.darkBackground,
+              AppColors.primary,
+              AppColors.primaryDark,
             ],
           ),
         ),
@@ -83,7 +84,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                     ),
                   ),
                   Text(
@@ -91,7 +92,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.redColor,
+                      color: AppColors.error,
                     ),
                   ),
                 ],
@@ -121,7 +122,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
               },
               icon: Icon(
                 Icons.calendar_month,
-                color: ColorConstant.goldColor,
+                color: AppColors.secondary,
                 size: 22,
               ),
               tooltip: "Calendar view",
@@ -147,14 +148,14 @@ class StarLineChartView extends GetView<StarLineChartController> {
             child: Icon(
               Icons.insert_chart_outlined,
               size: 80,
-              color: ColorConstant.goldColor.withOpacity(0.7),
+              color: AppColors.secondary.withOpacity(0.7),
             ),
           ),
           const SizedBox(height: 20),
           Text(
             "No Results Found",
             style: TextStyle(
-              color: ColorConstant.goldColor,
+              color: AppColors.secondary,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -173,13 +174,11 @@ class StarLineChartView extends GetView<StarLineChartController> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: ColorConstant.goldGradient,
-                ),
+                gradient: AppColors.secondaryGradient,
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                    color: ColorConstant.goldColor.withOpacity(0.3),
+                    color: AppColors.secondary.withOpacity(0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -216,7 +215,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: AppColors.shadowMedium,
                 blurRadius: 8,
                 spreadRadius: 1,
                 offset: const Offset(0, 4),
@@ -230,12 +229,12 @@ class StarLineChartView extends GetView<StarLineChartController> {
                 padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: ColorConstant.accentColor,
+                    color: AppColors.accent,
                     width: 2.5,),
                   gradient: LinearGradient(
                     colors: [
-                      ColorConstant.primaryColor,
-                      ColorConstant.primaryColor.withOpacity(0.9),
+                      AppColors.primary,
+                      AppColors.primary.withOpacity(0.9),
                     ],
                   ),
                   borderRadius: const BorderRadius.only(
@@ -248,7 +247,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
                   children: [
                     Icon(
                       Icons.calendar_today,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                       size: 20,
                     ),
                     const SizedBox(width: 10),
@@ -270,7 +269,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: hasFullResult 
-                      ? Colors.green.withOpacity(0.05) 
+                      ? AppColors.success.withOpacity(0.05) 
                       : Colors.orange.withOpacity(0.05),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(15),
@@ -334,7 +333,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
         Text(
           label,
           style: TextStyle(
-            color: ColorConstant.primaryColor,
+            color: AppColors.primary,
             fontSize: 12,
             fontWeight: FontWeight.bold,
             letterSpacing: 1,
@@ -346,15 +345,15 @@ class StarLineChartView extends GetView<StarLineChartController> {
           decoration: BoxDecoration(
             color: isAvailable 
                 ? isCentered
-                    ? ColorConstant.goldColor.withOpacity(0.1)
-                    : Colors.green.withOpacity(0.1)
+                    ? AppColors.secondary.withOpacity(0.1)
+                    : AppColors.success.withOpacity(0.1)
                 : Colors.orange.withOpacity(0.1),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: isAvailable 
                   ? isCentered
-                      ? ColorConstant.goldColor.withOpacity(0.3)
-                      : Colors.green.withOpacity(0.3)
+                      ? AppColors.secondary.withOpacity(0.3)
+                      : AppColors.success.withOpacity(0.3)
                   : Colors.orange.withOpacity(0.3),
               width: 1,
             ),
@@ -364,9 +363,9 @@ class StarLineChartView extends GetView<StarLineChartController> {
             style: TextStyle(
               color: isAvailable 
                   ? isCentered
-                      ? ColorConstant.goldColor
-                      : Colors.green.shade800
-                  : Colors.orange.shade800,
+                      ? AppColors.secondary
+                      : AppColors.successDark
+                  : AppColors.warningDark,
               fontSize: isCentered ? 20 : 18,
               fontWeight: FontWeight.bold,
               letterSpacing: 1,
@@ -379,7 +378,7 @@ class StarLineChartView extends GetView<StarLineChartController> {
             child: Text(
               "PENDING",
               style: TextStyle(
-                color: Colors.orange.shade800,
+                color: AppColors.warningDark,
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/modules/chart/models/market_result_model.dart' show MarketResultModel;
 
 import '../controllers/chart_controller.dart';
@@ -13,7 +14,7 @@ class ChartView extends GetView<ChartController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6B1C5C),
+        backgroundColor: const AppColors.primary,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -46,9 +47,9 @@ class ChartView extends GetView<ChartController> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: AppColors.background,
                   border: Border(
-                    bottom: BorderSide(color: Colors.grey[300]!, width: 1),
+                    bottom: BorderSide(color: AppColors.border!, width: 1),
                   ),
                 ),
                 child: const Row(
@@ -60,7 +61,7 @@ class ChartView extends GetView<ChartController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                       ),
                     ),
@@ -71,7 +72,7 @@ class ChartView extends GetView<ChartController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -83,7 +84,7 @@ class ChartView extends GetView<ChartController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -95,7 +96,7 @@ class ChartView extends GetView<ChartController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -114,9 +115,9 @@ class ChartView extends GetView<ChartController> {
                     return Container(
                       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       decoration: BoxDecoration(
-                        color: index % 2 == 0 ? Colors.white : Colors.grey[50],
+                        color: index % 2 == 0 ? Colors.white : AppColors.surface,
                         border: Border(
-                          bottom: BorderSide(color: Colors.grey[200]!, width: 0.5),
+                          bottom: BorderSide(color: AppColors.border!, width: 0.5),
                         ),
                       ),
                       child: Row(
@@ -128,7 +129,7 @@ class ChartView extends GetView<ChartController> {
                               _formatDateForTable(chart),
                               style: const TextStyle(
                                 fontSize: 14,
-                                color: Colors.black87,
+                                color: AppColors.textPrimary,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -143,7 +144,7 @@ class ChartView extends GetView<ChartController> {
                                   : '***',
                               style: const TextStyle(
                                 fontSize: 14,
-                                color: Colors.black87,
+                                color: AppColors.textPrimary,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,
@@ -157,7 +158,7 @@ class ChartView extends GetView<ChartController> {
                               chart.calculateAnk() ?? '**',
                               style: const TextStyle(
                                 fontSize: 14,
-                                color: Colors.black87,
+                                color: AppColors.textPrimary,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,
@@ -173,7 +174,7 @@ class ChartView extends GetView<ChartController> {
                                   : '***',
                               style: const TextStyle(
                                 fontSize: 14,
-                                color: Colors.black87,
+                                color: AppColors.textPrimary,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,
@@ -211,13 +212,13 @@ class ChartView extends GetView<ChartController> {
           Icon(
             Icons.insert_chart_outlined,
             size: 80,
-            color: Colors.grey[400],
+            color: AppColors.textSecondary,
           ),
           const SizedBox(height: 20),
           Text(
             "No Results Found",
             style: TextStyle(
-              color: Colors.grey[600],
+              color: AppColors.textSecondary,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -226,7 +227,7 @@ class ChartView extends GetView<ChartController> {
           Text(
             "Check back later for game results",
             style: TextStyle(
-              color: Colors.grey[500],
+              color: AppColors.textSecondary,
               fontSize: 14,
             ),
           ),

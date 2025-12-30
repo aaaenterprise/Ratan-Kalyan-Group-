@@ -5,7 +5,7 @@ import 'dart:math' show cos, sin;
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/modules/gali-home/models/game_model.dart';
 import 'package:gold/app/modules/gali-home/views/create_bet_widget.dart';
 import 'package:gold/app/modules/home/models/game_model.dart';
@@ -25,9 +25,9 @@ class GaliGameOptionPage extends StatelessWidget {
         Get.offAllNamed(Routes.HOME);
       },
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: AppColors.background,
         appBar: AppBar(
-          backgroundColor: const Color(0xFF6B1C5C),
+          backgroundColor: const AppColors.primary,
           elevation: 0,
           leading: IconButton(
             onPressed: () {
@@ -150,12 +150,12 @@ class GaliGameOptionPage extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: isEnabled
                 ? [
-                    const Color(0xFF5B8DB8),
-                    const Color(0xFF4A7BA7),
+                    AppColors.accent,
+                    AppColors.accentDark,
                   ]
                 : [
-                    Colors.grey[400]!,
-                    Colors.grey[500]!,
+                    AppColors.textSecondary!,
+                    AppColors.textSecondary!,
                   ],
           ),
           boxShadow: [
@@ -188,14 +188,14 @@ class GaliGameOptionPage extends StatelessWidget {
                     Icon(
                       icon,
                       size: 40,
-                      color: const Color(0xFF5B8DB8),
+                      color: AppColors.accent,
                     ),
                     const SizedBox(height: 8),
                     Text(
                       title,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: Color(0xFF5B8DB8),
+                        color: AppColors.accent,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         height: 1.1,
@@ -208,7 +208,7 @@ class GaliGameOptionPage extends StatelessWidget {
             // Hexagonal border effect
             // CustomPaint(
             //   painter: HexagonBorderPainter(
-            //     color: Colors.red,
+            //     color: AppColors.error,
             //     strokeWidth: 4,
             //   ),
             //   size: const Size(150, 150),
@@ -272,6 +272,7 @@ class HexagonBorderPainter extends CustomPainter {
 // import 'package:gold/app/modules/gali-home/models/game_model.dart';
 // import 'package:gold/app/modules/gali-home/views/create_bet_widget.dart';
 // import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 
 // class GaliGameOptionPage extends StatelessWidget {
 //   final GaliGameModel game;

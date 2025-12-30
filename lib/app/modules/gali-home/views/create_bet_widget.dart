@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/core/models/user_model.dart';
 
 import 'package:gold/app/modules/StarLine/views/single_digit_and_pana.dart';
@@ -29,7 +30,7 @@ class _CreateBetWidgetState extends State<GaliCreateBetWidget> {
     return Scaffold(
       appBar: AppBar(
         title:  Text('${widget.gameType} - ${widget.game.gameName}'),
-        backgroundColor: const Color(0xFF6B1C5C),
+        backgroundColor: AppColors.primary,
         centerTitle: true,
       ),
       body: SafeArea(
@@ -47,11 +48,11 @@ class _CreateBetWidgetState extends State<GaliCreateBetWidget> {
             height: 130,
             width: 250,
             decoration: BoxDecoration(
-              color: const Color(0xFF6B1C5C),
+              gradient: AppColors.primaryGradient,
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: AppColors.shadowMedium,
                   blurRadius: 8,
                   offset: const Offset(0, 3),
                 ),
@@ -66,7 +67,7 @@ class _CreateBetWidgetState extends State<GaliCreateBetWidget> {
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.textOnPrimary,
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -74,7 +75,7 @@ class _CreateBetWidgetState extends State<GaliCreateBetWidget> {
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: Divider(
                     height: 1,
-                    color: Colors.white,
+                    color: AppColors.textOnPrimary,
                     thickness: 2.5,
                   ),
                 ),
@@ -83,7 +84,7 @@ class _CreateBetWidgetState extends State<GaliCreateBetWidget> {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.textOnPrimary,
                     letterSpacing: 0.5,
                   ),
                 ),

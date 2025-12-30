@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/core/custom_validation.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/profile_controller.dart';
 
@@ -11,9 +12,9 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6B1C5C),
+        backgroundColor: const AppColors.primary,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -61,7 +62,7 @@ class ProfileView extends GetView<ProfileController> {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
-            color: Colors.black87,
+            color: AppColors.textPrimary,
           ),
         ),
         const SizedBox(height: 15),
@@ -110,7 +111,7 @@ class ProfileView extends GetView<ProfileController> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: Colors.black87,
+              color: AppColors.textPrimary,
             ),
           ),
           const SizedBox(height: 15),
@@ -161,13 +162,13 @@ class ProfileView extends GetView<ProfileController> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(25),
-        border: Border.all(color: Colors.grey[300]!),
+        border: Border.all(color: AppColors.border!),
       ),
       child: Text(
         value,
         style: const TextStyle(
           fontSize: 16,
-          color: Colors.black87,
+          color: AppColors.textPrimary,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -185,13 +186,13 @@ class ProfileView extends GetView<ProfileController> {
       obscureText: true,
       style: const TextStyle(
         fontSize: 16,
-        color: Colors.black87,
+        color: AppColors.textPrimary,
         fontWeight: FontWeight.w400,
       ),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(
-          color: Colors.grey[500],
+          color: AppColors.textSecondary,
           fontSize: 16,
         ),
         filled: true,
@@ -202,23 +203,23 @@ class ProfileView extends GetView<ProfileController> {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: BorderSide(color: Colors.grey[300]!),
+          borderSide: BorderSide(color: AppColors.border!),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: BorderSide(color: Colors.grey[300]!),
+          borderSide: BorderSide(color: AppColors.border!),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(color: Color(0xFF6B1C5C), width: 2),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(color: Colors.red),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(color: Colors.red, width: 2),
+          borderSide: const BorderSide(color: AppColors.error, width: 2),
         ),
       ),
       validator: validator,
@@ -237,8 +238,8 @@ class ProfileView extends GetView<ProfileController> {
       child: ElevatedButton(
         onPressed: isEnabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: isEnabled ? const Color(0xFF6B1C5C) : Colors.grey[400],
-          disabledBackgroundColor: Colors.grey[400],
+          backgroundColor: isEnabled ? const AppColors.primary : AppColors.textSecondary,
+          disabledBackgroundColor: AppColors.textSecondary,
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),

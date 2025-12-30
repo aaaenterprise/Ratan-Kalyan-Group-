@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:intl/intl.dart';
 import '../controllers/gali_win_controller.dart';
 
@@ -12,7 +13,7 @@ class GaliWinView extends GetView<GaliWinController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const  Color(0xFF6B1C5C) ,
+        backgroundColor: const  AppColors.primary ,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -58,9 +59,9 @@ class GaliWinView extends GetView<GaliWinController> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: AppColors.background,
                   border: Border(
-                    bottom: BorderSide(color: Colors.grey[300]!, width: 1),
+                    bottom: BorderSide(color: AppColors.border!, width: 1),
                   ),
                 ),
                 child: const Row(
@@ -72,7 +73,7 @@ class GaliWinView extends GetView<GaliWinController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                       ),
                     ),
@@ -83,7 +84,7 @@ class GaliWinView extends GetView<GaliWinController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -95,7 +96,7 @@ class GaliWinView extends GetView<GaliWinController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -107,7 +108,7 @@ class GaliWinView extends GetView<GaliWinController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -129,9 +130,9 @@ class GaliWinView extends GetView<GaliWinController> {
                     return Container(
                       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       decoration: BoxDecoration(
-                        color: index % 2 == 0 ? Colors.white : Colors.grey[50],
+                        color: index % 2 == 0 ? Colors.white : AppColors.surface,
                         border: Border(
-                          bottom: BorderSide(color: Colors.grey[200]!, width: 0.5),
+                          bottom: BorderSide(color: AppColors.border!, width: 0.5),
                         ),
                       ),
                       child: Column(
@@ -148,7 +149,7 @@ class GaliWinView extends GetView<GaliWinController> {
                                       winHistory.gameName ?? "Game",
                                       style: const TextStyle(
                                         fontSize: 14,
-                                        color: Colors.black87,
+                                        color: AppColors.textPrimary,
                                         fontWeight: FontWeight.w600,
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -158,7 +159,7 @@ class GaliWinView extends GetView<GaliWinController> {
                                       _formatDateForTable(winHistory),
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Colors.grey[600],
+                                        color: AppColors.textSecondary,
                                       ),
                                     ),
                                   ],
@@ -174,10 +175,10 @@ class GaliWinView extends GetView<GaliWinController> {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.blue.shade50,
+                                    color: AppColors.info.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(12),
                                     border: Border.all(
-                                      color: Colors.blue.shade200,
+                                      color: AppColors.info.withOpacity(0.3),
                                       width: 0.5,
                                     ),
                                   ),
@@ -185,7 +186,7 @@ class GaliWinView extends GetView<GaliWinController> {
                                     winHistory.betType ?? "Bet",
                                     style: TextStyle(
                                       fontSize: 12,
-                                      color: Colors.blue.shade700,
+                                      color: AppColors.infoDark,
                                       fontWeight: FontWeight.w600,
                                     ),
                                     textAlign: TextAlign.center,
@@ -203,14 +204,14 @@ class GaliWinView extends GetView<GaliWinController> {
                                     Icon(
                                       Icons.emoji_events,
                                       size: 14,
-                                      color: Colors.green.shade600,
+                                      color: AppColors.success,
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
                                       "₹${winHistory.winningAmount ?? 0}",
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.green.shade700,
+                                        color: AppColors.successDark,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -228,13 +229,13 @@ class GaliWinView extends GetView<GaliWinController> {
                                   ),
                                   decoration: BoxDecoration(
                                     color: profit > 0 
-                                        ? Colors.green.shade50 
-                                        : Colors.red.shade50,
+                                        ? AppColors.success.shade50 
+                                        : AppColors.error.shade50,
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: profit > 0 
-                                          ? Colors.green.shade200 
-                                          : Colors.red.shade200,
+                                          ? AppColors.success.shade200 
+                                          : AppColors.error.shade200,
                                       width: 0.5,
                                     ),
                                   ),
@@ -243,8 +244,8 @@ class GaliWinView extends GetView<GaliWinController> {
                                     style: TextStyle(
                                       fontSize: 12,
                                       color: profit > 0 
-                                          ? Colors.green.shade700 
-                                          : Colors.red.shade700,
+                                          ? AppColors.successDark 
+                                          : AppColors.errorDark,
                                       fontWeight: FontWeight.bold,
                                     ),
                                     textAlign: TextAlign.center,
@@ -263,14 +264,14 @@ class GaliWinView extends GetView<GaliWinController> {
                                   Icon(
                                     Icons.monetization_on_outlined,
                                     size: 14,
-                                    color: Colors.grey[600],
+                                    color: AppColors.textSecondary,
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
                                     "Bet Amount: ₹${winHistory.betAmount}",
                                     style: TextStyle(
                                       fontSize: 12,
-                                      color: Colors.grey[600],
+                                      color: AppColors.textSecondary,
                                       fontStyle: FontStyle.italic,
                                     ),
                                   ),
@@ -278,14 +279,14 @@ class GaliWinView extends GetView<GaliWinController> {
                                   Icon(
                                     Icons.schedule,
                                     size: 14,
-                                    color: Colors.grey[600],
+                                    color: AppColors.textSecondary,
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
                                     "Win Time: ${winHistory.timestamp.toString().split(".").first}",
                                     style: TextStyle(
                                       fontSize: 12,
-                                      color: Colors.grey[600],
+                                      color: AppColors.textSecondary,
                                       fontStyle: FontStyle.italic,
                                     ),
                                   ),
@@ -326,13 +327,13 @@ class GaliWinView extends GetView<GaliWinController> {
           Icon(
             Icons.emoji_events_outlined,
             size: 80,
-            color: Colors.grey[400],
+            color: AppColors.textSecondary,
           ),
           const SizedBox(height: 20),
           Text(
             "No Winning Record Found",
             style: TextStyle(
-              color: Colors.grey[600],
+              color: AppColors.textSecondary,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -341,7 +342,7 @@ class GaliWinView extends GetView<GaliWinController> {
           Text(
             "Your winning bets will appear here",
             style: TextStyle(
-              color: Colors.grey[500],
+              color: AppColors.textSecondary,
               fontSize: 14,
             ),
           ),

@@ -15,6 +15,7 @@ import 'package:gold/app/modules/gali-home/models/betting_history_model.dart';
 
 import 'package:gold/app/modules/gali-home/models/game_model.dart';
 import 'package:gold/app/modules/home/views/create_bet_widget.dart';
+import 'package:gold/app/core/app_color.dart';
 
 class GaliSingleDigit extends StatefulWidget {
   final String gameType;
@@ -82,7 +83,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
                       child: Text(
                         '10, Sep 2025',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.cardBackground,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -127,7 +128,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
                               child: const Text(
                                 'OPEN',
                                 style: TextStyle(
-                                  color: Colors.white, // White text when closed
+                                  color: AppColors.cardBackground, // White text when closed
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 0.5,
@@ -159,7 +160,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
                               child: const Text(
                                 'CLOSE',
                                 style: TextStyle(
-                                  color: Colors.white, // Brown text when open
+                                  color: AppColors.cardBackground, // Brown text when open
                                   // White text when closed
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
@@ -231,7 +232,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
             },
             style: ElevatedButton.styleFrom(
               minimumSize: Size(MediaQuery.sizeOf(context).width * 0.8, 45),
-              backgroundColor: const Color(0xFF6B1C5C),
+              backgroundColor: const AppColors.primary,
 
               shadowColor: Colors.transparent,
               shape: RoundedRectangleBorder(
@@ -243,7 +244,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
               "ADD BID",
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                color: AppColors.cardBackground,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -252,7 +253,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
           Visibility(
             visible: bettingList.isNotEmpty,
             child: Container(
-              color: Colors.white,
+              color: AppColors.cardBackground,
               padding: const EdgeInsets.all(10.0),
               child: DataTable(
                 columns: const [
@@ -274,7 +275,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
                             Text(bettingList[index].betTime.toString()),
                             IconButton(
                               onPressed: () => removeBetByIndex(index),
-                              icon: const Icon(Icons.delete, color: Colors.red),
+                              icon: const Icon(Icons.delete, color: AppColors.error),
                             ),
                           ],
                         ),
@@ -306,7 +307,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(MediaQuery.sizeOf(context).width * 0.8, 45),
-                backgroundColor: const Color(0xFF6B1C5C),
+                backgroundColor: const AppColors.primary,
             
                 shadowColor: Colors.transparent,
                 shape: RoundedRectangleBorder(
@@ -319,7 +320,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                  color: AppColors.cardBackground,
                 ),
               ),
             ),
@@ -345,7 +346,7 @@ class _GaliSingleDigitState extends State<GaliSingleDigit>
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           labelText: name,
-          fillColor: Colors.blueAccent,
+          fillColor: AppColors.infoAccent,
           counter: const SizedBox.shrink(),
         ),
         inputFormatters: <TextInputFormatter>[

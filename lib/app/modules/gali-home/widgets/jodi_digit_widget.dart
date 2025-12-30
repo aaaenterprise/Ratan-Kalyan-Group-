@@ -16,6 +16,7 @@ import 'package:gold/app/modules/gali-home/models/betting_history_model.dart';
 
 import 'package:gold/app/modules/gali-home/models/game_model.dart';
 import 'package:gold/app/modules/home/views/create_bet_widget.dart';
+import 'package:gold/app/core/app_color.dart';
 
 class GaliJodiDigit extends StatefulWidget {
   final String gameType;
@@ -125,7 +126,7 @@ class _SingleDigitAndPanaState extends State<GaliJodiDigit>
               style: ElevatedButton.styleFrom(
                   minimumSize:
                       Size(MediaQuery.sizeOf(context).width * 0.8, 45),
-                      backgroundColor: const Color(0xFF6B1C5C),
+                      backgroundColor: const AppColors.primary,
 
               shadowColor: Colors.transparent,
               shape: RoundedRectangleBorder(
@@ -136,7 +137,7 @@ class _SingleDigitAndPanaState extends State<GaliJodiDigit>
                 "ADD BID",
                 style: TextStyle(
                     fontSize: 20,
-                    color: Colors.white,
+                    color: AppColors.cardBackground,
                     fontWeight: FontWeight.w600),
               )),
           const SizedBox(
@@ -145,7 +146,7 @@ class _SingleDigitAndPanaState extends State<GaliJodiDigit>
           Visibility(
             visible: bettingList.isNotEmpty,
             child: Container(
-              color: Colors.white,
+              color: AppColors.cardBackground,
               padding: const EdgeInsets.all(10.0),
               child: DataTable(
                   columns: const [
@@ -176,7 +177,7 @@ class _SingleDigitAndPanaState extends State<GaliJodiDigit>
                                   onPressed: () => removeBetByIndex(index),
                                   icon: const Icon(
                                     Icons.delete,
-                                    color: Colors.red,
+                                    color: AppColors.error,
                                   ),
                                 ),
                               ],
@@ -208,7 +209,7 @@ class _SingleDigitAndPanaState extends State<GaliJodiDigit>
                 style: ElevatedButton.styleFrom(
                     minimumSize:
                         Size(MediaQuery.sizeOf(context).width * 0.8, 45),
-                        backgroundColor: const Color(0xFF6B1C5C),
+                        backgroundColor: const AppColors.primary,
             
                 shadowColor: Colors.transparent,
                 shape: RoundedRectangleBorder(
@@ -244,7 +245,7 @@ class _SingleDigitAndPanaState extends State<GaliJodiDigit>
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           labelText: name,
-          fillColor: Colors.blueAccent,
+          fillColor: AppColors.infoAccent,
           counter: const SizedBox.shrink(),
         ),
         inputFormatters: <TextInputFormatter>[

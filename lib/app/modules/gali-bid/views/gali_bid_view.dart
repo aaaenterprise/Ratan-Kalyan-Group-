@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:intl/intl.dart';
 import '../controllers/gali_bid_controller.dart';
 
@@ -12,7 +13,7 @@ class GaliBidView extends GetView<GaliBidController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const  Color(0xFF6B1C5C) ,
+        backgroundColor: const  AppColors.primary ,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -54,14 +55,14 @@ class GaliBidView extends GetView<GaliBidController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircularProgressIndicator(
-                    color: const  Color(0xFF6B1C5C) ,
+                    color: const  AppColors.primary ,
                     strokeWidth: 3,
                   ),
                   const SizedBox(height: 20),
                   Text(
                     "Loading your bids...",
                     style: TextStyle(
-                      color: Colors.grey[600],
+                      color: AppColors.textSecondary,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -81,9 +82,9 @@ class GaliBidView extends GetView<GaliBidController> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: AppColors.background,
                   border: Border(
-                    bottom: BorderSide(color: Colors.grey[300]!, width: 1),
+                    bottom: BorderSide(color: AppColors.border!, width: 1),
                   ),
                 ),
                 child: const Row(
@@ -95,7 +96,7 @@ class GaliBidView extends GetView<GaliBidController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                       ),
                     ),
@@ -106,7 +107,7 @@ class GaliBidView extends GetView<GaliBidController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -118,7 +119,7 @@ class GaliBidView extends GetView<GaliBidController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -130,7 +131,7 @@ class GaliBidView extends GetView<GaliBidController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors.textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -154,9 +155,9 @@ class GaliBidView extends GetView<GaliBidController> {
                     return Container(
                       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       decoration: BoxDecoration(
-                        color: index % 2 == 0 ? Colors.white : Colors.grey[50],
+                        color: index % 2 == 0 ? Colors.white : AppColors.surface,
                         border: Border(
-                          bottom: BorderSide(color: Colors.grey[200]!, width: 0.5),
+                          bottom: BorderSide(color: AppColors.border!, width: 0.5),
                         ),
                       ),
                       child: Column(
@@ -173,7 +174,7 @@ class GaliBidView extends GetView<GaliBidController> {
                                       bet.gameName ?? "Game",
                                       style: const TextStyle(
                                         fontSize: 14,
-                                        color: Colors.black87,
+                                        color: AppColors.textPrimary,
                                         fontWeight: FontWeight.w600,
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -183,7 +184,7 @@ class GaliBidView extends GetView<GaliBidController> {
                                       _formatDateForTable(bet),
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Colors.grey[600],
+                                        color: AppColors.textSecondary,
                                       ),
                                     ),
                                   ],
@@ -199,10 +200,10 @@ class GaliBidView extends GetView<GaliBidController> {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.purple.shade50,
+                                    color: AppColors.primary.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(12),
                                     border: Border.all(
-                                      color: Colors.purple.shade200,
+                                      color: AppColors.primary.withOpacity(0.3),
                                       width: 0.5,
                                     ),
                                   ),
@@ -210,7 +211,7 @@ class GaliBidView extends GetView<GaliBidController> {
                                     bet.betType ?? "Bet",
                                     style: TextStyle(
                                       fontSize: 12,
-                                      color: Colors.purple.shade700,
+                                      color: AppColors.primaryDark,
                                       fontWeight: FontWeight.w600,
                                     ),
                                     textAlign: TextAlign.center,
@@ -228,13 +229,13 @@ class GaliBidView extends GetView<GaliBidController> {
                                     Icon(
                                       Icons.currency_rupee,
                                       size: 14,
-                                      color: Colors.green.shade600,
+                                      color: AppColors.success,
                                     ),
                                     Text(
                                       "${bet.betAmount ?? 0}",
                                       style: TextStyle(
                                         fontSize: 16,
-                                        color: Colors.green.shade700,
+                                        color: AppColors.successDark,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -251,10 +252,10 @@ class GaliBidView extends GetView<GaliBidController> {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.orange.shade50,
+                                    color: AppColors.warning.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: Colors.orange.shade200,
+                                      color: AppColors.warning.withOpacity(0.3),
                                       width: 0.5,
                                     ),
                                   ),
@@ -262,7 +263,7 @@ class GaliBidView extends GetView<GaliBidController> {
                                     betNumbers,
                                     style: TextStyle(
                                       fontSize: 14,
-                                      color: Colors.orange.shade800,
+                                      color: AppColors.warningDark,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1,
                                     ),
@@ -282,14 +283,14 @@ class GaliBidView extends GetView<GaliBidController> {
                                 Icon(
                                   Icons.schedule,
                                   size: 14,
-                                  color: Colors.grey[600],
+                                  color: AppColors.textSecondary,
                                 ),
                                 const SizedBox(width: 6),
                                 Text(
                                   "Bid Time: ${bet.timestamp.toString().split(".").first}",
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey[600],
+                                    color: AppColors.textSecondary,
                                     fontStyle: FontStyle.italic,
                                   ),
                                 ),
@@ -330,13 +331,13 @@ class GaliBidView extends GetView<GaliBidController> {
           Icon(
             Icons.history,
             size: 80,
-            color: Colors.grey[400],
+            color: AppColors.textSecondary,
           ),
           const SizedBox(height: 20),
           Text(
             "No Bid History Found",
             style: TextStyle(
-              color: Colors.grey[600],
+              color: AppColors.textSecondary,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -345,7 +346,7 @@ class GaliBidView extends GetView<GaliBidController> {
           Text(
             "Place a bet to see your history here",
             style: TextStyle(
-              color: Colors.grey[500],
+              color: AppColors.textSecondary,
               fontSize: 14,
             ),
           ),

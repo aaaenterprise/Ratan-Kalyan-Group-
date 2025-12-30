@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 
 import '../controllers/fund_controller.dart';
 
@@ -14,7 +15,7 @@ class FundView extends GetView<FundController> {
     return Scaffold(
       backgroundColor: const Color(0xfff3ebfa),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6B1C5C),
+        backgroundColor: const AppColors.primary,
         title: const Text("My Wallet"),
       ),
       body: Column(
@@ -27,7 +28,7 @@ class FundView extends GetView<FundController> {
               padding: const EdgeInsets.all(30),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.black, width: 2),
+                border: Border.all(color: AppColors.textPrimary, width: 2),
               ),
               child: Column(
                 children: [
@@ -122,7 +123,7 @@ class NextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6B1C5C),
+        backgroundColor: const AppColors.primary,
         title: Text(title),
       ),
       body: Center(

@@ -1,5 +1,6 @@
 import 'package:barcode/barcode.dart';
 import 'package:flutter/material.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ScanQRCode extends StatefulWidget {
@@ -61,7 +62,7 @@ class _ScanQRCodeState extends State<ScanQRCode> {
                   const SizedBox(height: 20),
                   const Text(
                     'Scan the QR code',
-                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700,fontSize: 20.0),
+                    style: TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.w700,fontSize: 20.0),
                   ),
 
                 ],

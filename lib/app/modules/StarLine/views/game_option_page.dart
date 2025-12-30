@@ -143,12 +143,13 @@ import 'package:get/get.dart';
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
 import 'package:gold/app/modules/StarLine/models/star_line_game_model.dart';
 import 'package:gold/app/modules/StarLine/views/create_bet_widget.dart';
 import 'package:gold/app/modules/home/models/game_model.dart';
 import 'package:gold/app/modules/home/views/create_bet_widget.dart';
 import 'package:gold/app/routes/app_pages.dart';
+import 'package:gold/app/core/app_color.dart';
 
 class StarLineGameOptionPage extends StatelessWidget {
   final StarLineGameModel game;
@@ -172,8 +173,8 @@ class StarLineGameOptionPage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                ColorConstant.primaryColor,
-                ColorConstant.darkBackground,
+                AppColors.primary,
+                AppColors.primaryDark,
               ],
             ),
           ),
@@ -216,7 +217,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstant.goldColor,
+                                  color: AppColors.secondary,
                                 ),
                               ),
                               Text(
@@ -224,7 +225,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstant.redColor,
+                                  color: AppColors.error,
                                 ),
                               ),
                             ],
@@ -234,7 +235,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                           Text(
                             game.gameName ?? "",
                             style: TextStyle(
-                              color: ColorConstant.textSecondary,
+                              color: AppColors.textSecondary,
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
@@ -246,13 +247,11 @@ class StarLineGameOptionPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: ColorConstant.goldGradient,
-                          ),
+                          gradient: AppColors.secondaryGradient,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
-                              color: ColorConstant.goldColor.withOpacity(0.3),
+                              color: AppColors.secondary.withOpacity(0.3),
                               blurRadius: 5,
                               offset: const Offset(0, 2),
                             ),
@@ -290,7 +289,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: ColorConstant.goldColor,
+                      color: AppColors.secondary,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -304,7 +303,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                       color: Colors.white.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: ColorConstant.goldColor.withOpacity(0.3),
+                        color: AppColors.secondary.withOpacity(0.3),
                         width: 1,
                       ),
                     ),
@@ -422,7 +421,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                     color: Colors.black.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: ColorConstant.goldColor.withOpacity(0.3),
+                      color: AppColors.secondary.withOpacity(0.3),
                       width: 1,
                     ),
                   ),
@@ -444,7 +443,7 @@ class StarLineGameOptionPage extends StatelessWidget {
                             ? "Today's Result: ${(game.todayResult?.openPana != null && game.todayResult?.openPana != '') ? game.todayResult?.openPana : '***'}-${game.todayResult?.calculateSingleAnk() ?? '*'}"
                             : "Today's Result: Pending",
                         style: TextStyle(
-                          color: ColorConstant.goldColor,
+                          color: AppColors.secondary,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -486,7 +485,7 @@ class StarLineGameOptionPage extends StatelessWidget {
           color: isEnabled ? Colors.black.withOpacity(0.4) : Colors.grey.withOpacity(0.3),
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
-            color: isEnabled ? ColorConstant.goldColor.withOpacity(0.5) : Colors.grey.withOpacity(0.5),
+            color: isEnabled ? AppColors.secondary.withOpacity(0.5) : Colors.grey.withOpacity(0.5),
             width: 1.5,
           ),
           boxShadow: isEnabled ? [
@@ -518,9 +517,7 @@ class StarLineGameOptionPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
                 gradient: isEnabled
-                    ? LinearGradient(
-                        colors: ColorConstant.goldGradient,
-                      )
+                    ? AppColors.secondaryGradient
                     : LinearGradient(
                         colors: [Colors.grey.shade600, Colors.grey.shade700],
                       ),
@@ -546,14 +543,14 @@ class StarLineGameOptionPage extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.lock,
-                      color: Colors.red.shade300,
+                      color: AppColors.error.shade300,
                       size: 14,
                     ),
                     const SizedBox(width: 3),
                     Text(
                       "CLOSED",
                       style: TextStyle(
-                        color: Colors.red.shade300,
+                        color: AppColors.error.shade300,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -574,7 +571,7 @@ class StarLineGameOptionPage extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            color: ColorConstant.goldColor,
+            color: AppColors.secondary,
             fontSize: 12,
             fontWeight: FontWeight.bold,
           ),

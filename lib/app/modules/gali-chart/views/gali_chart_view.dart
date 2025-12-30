@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
+import 'package:gold/app/core/app_color.dart';
+import 'package:gold/app/core/app_color.dart';
 import '../controllers/gali_chart_controller.dart';
 
 class GaliChartView extends GetView<GaliChartController> {
@@ -9,9 +10,9 @@ class GaliChartView extends GetView<GaliChartController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: const  Color(0xFF6B1C5C) , // Purple color from screenshot
+        backgroundColor: const  AppColors.primary , // Purple color from screenshot
         title: const Text(
           'Chart Result',
           style: TextStyle(
@@ -109,7 +110,7 @@ class GaliChartView extends GetView<GaliChartController> {
                       }
                       
                       return Container(
-                        color: isEvenRow ? Colors.grey[200] : Colors.white,
+                        color: isEvenRow ? AppColors.border : Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         child: Row(
                           children: [
@@ -121,7 +122,7 @@ class GaliChartView extends GetView<GaliChartController> {
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.black,
+                                    color: AppColors.textPrimary,
                                   ),
                                 ),
                               ),
@@ -134,7 +135,7 @@ class GaliChartView extends GetView<GaliChartController> {
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.black,
+                                    color: AppColors.textPrimary,
                                   ),
                                 ),
                               ),
@@ -147,7 +148,7 @@ class GaliChartView extends GetView<GaliChartController> {
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.black,
+                                    color: AppColors.textPrimary,
                                   ),
                                 ),
                               ),
