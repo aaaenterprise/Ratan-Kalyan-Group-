@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// Add this import at the top if not present
-import 'dart:math' show cos, sin;
+import 'dart:math' show cos, sin, pi;
 import 'package:gold/app/core/models/user_model.dart';
 import 'package:gold/app/core/widgets/widgets.dart';
 import 'package:gold/app/data/constant/assets_constant.dart';
-import 'package:gold/app/data/constant/color_constant.dart';
 import 'package:gold/app/modules/home/models/game_model.dart';
 import 'package:gold/app/modules/home/views/create_bet_widget.dart';
 import 'package:gold/app/routes/app_pages.dart';
+// import '/home/claude/app_colors.dart'; // Import the new color theme
+import '../../../core/app_color.dart';
 
 class GameOptionPage extends StatelessWidget {
   final GameModel game;
@@ -23,29 +23,35 @@ class GameOptionPage extends StatelessWidget {
         Get.offAllNamed(Routes.HOME);
       },
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: AppColors.background,
         appBar: AppBar(
-          backgroundColor: const Color(0xFF6B1C5C),
+          backgroundColor: AppColors.primary,
           elevation: 0,
           leading: IconButton(
             onPressed: () {
               Get.offAllNamed(Routes.HOME);
             },
             icon: const Icon(
-              Icons.arrow_back,
-              color: Colors.white,
+              Icons.arrow_back_rounded,
+              color: AppColors.textOnPrimary,
               size: 24,
             ),
           ),
           title: Text(
             game.gameName?.toUpperCase() ?? "",
             style: const TextStyle(
-              color: Colors.white,
+              color: AppColors.textOnPrimary,
               fontSize: 18,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.2,
             ),
           ),
           centerTitle: false,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: AppColors.primaryGradient,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -58,96 +64,66 @@ class GameOptionPage extends StatelessWidget {
               _buildGameCard(
                 context: context,
                 title: "SINGLE\nDIGIT",
-                icon: Icons.casino,
+                icon: Icons.filter_1_outlined,
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CreateBetWidget(
-                        user: user,
-                        game: game,
-                        gameType: "Single Digit",
-                      ),
+                      builder:
+                          (context) => CreateBetWidget(
+                            user: user,
+                            game: game,
+                            gameType: "Single Digit",
+                          ),
                     ),
                   );
                 },
                 isEnabled: true,
               ),
-              // _buildGameCard(
-              //   context: context,
-              //   title: "ODD DIGITS",
-              //   icon: Icons.filter_1,
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => CreateBetWidget(
-              //           user: user,
-              //           game: game,
-              //           gameType: "Odd Digits",
-              //         ),
-              //       ),
-              //     );
-              //   },
-              //   isEnabled: true,
-              // ),
               _buildGameCard(
                 context: context,
                 title: "JODI\nDIGIT",
-                icon: Icons.casino,
+                icon: Icons.filter_2_outlined,
                 onTap: () {
-                  if (!game.todayResultDeclared! && game.isCurrentTimeLessThan(false)) {
+                  if (!game.todayResultDeclared! &&
+                      game.isCurrentTimeLessThan(false)) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateBetWidget(
-                          user: user,
-                          game: game,
-                          gameType: "Jodi Digit",
-                        ),
+                        builder:
+                            (context) => CreateBetWidget(
+                              user: user,
+                              game: game,
+                              gameType: "Jodi Digit",
+                            ),
                       ),
                     );
                   } else {
                     CustomWidget.showSnackBar(
                       "Game is closed for this type",
-                      bgColor: Colors.white,
-                      fgColor: Colors.black,
+                      bgColor: AppColors.cardBackground,
+                      fgColor: AppColors.textPrimary,
                     );
                   }
                 },
-                isEnabled: !game.todayResultDeclared! && game.isCurrentTimeLessThan(false),
+                isEnabled:
+                    !game.todayResultDeclared! &&
+                    game.isCurrentTimeLessThan(false),
               ),
-              // _buildGameCard(
-              //   context: context,
-              //   title: "RED BRACKET",
-              //   icon: Icons.style,
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => CreateBetWidget(
-              //           user: user,
-              //           game: game,
-              //           gameType: "Red Bracket",
-              //         ),
-              //       ),
-              //     );
-              //   },
-              //   isEnabled: true,
-              // ),
               _buildGameCard(
                 context: context,
                 title: "SINGLE\nPANA",
-                icon: Icons.looks_one,
+                icon: Icons.looks_one_outlined,
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CreateBetWidget(
-                        user: user,
-                        game: game,
-                        gameType: "Single Pana",
-                      ),
+                      builder:
+                          (context) => CreateBetWidget(
+                            user: user,
+                            game: game,
+                            gameType: "Single Pana",
+                          ),
                     ),
                   );
                 },
@@ -156,16 +132,17 @@ class GameOptionPage extends StatelessWidget {
               _buildGameCard(
                 context: context,
                 title: "DOUBLE\nPANA",
-                icon: Icons.looks_two,
+                icon: Icons.looks_two_outlined,
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CreateBetWidget(
-                        user: user,
-                        game: game,
-                        gameType: "Double Pana",
-                      ),
+                      builder:
+                          (context) => CreateBetWidget(
+                            user: user,
+                            game: game,
+                            gameType: "Double Pana",
+                          ),
                     ),
                   );
                 },
@@ -174,104 +151,96 @@ class GameOptionPage extends StatelessWidget {
               _buildGameCard(
                 context: context,
                 title: "TRIPLE\nPANA",
-                icon: Icons.looks_3,
+                icon: Icons.looks_3_outlined,
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CreateBetWidget(
-                        user: user,
-                        game: game,
-                        gameType: "Triple Pana",
-                      ),
+                      builder:
+                          (context) => CreateBetWidget(
+                            user: user,
+                            game: game,
+                            gameType: "Triple Pana",
+                          ),
                     ),
                   );
                 },
                 isEnabled: true,
               ),
-              // _buildGameCard(
-              //   context: context,
-              //   title: "SP DP TP\nMOTOR",
-              //   icon: Icons.settings,
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => CreateBetWidget(
-              //           user: user,
-              //           game: game,
-              //           gameType: "SP DP TP Motor",
-              //         ),
-              //       ),
-              //     );
-              //   },
-              //   isEnabled: true,
-              // ),
               _buildGameCard(
                 context: context,
                 title: "HALF\nSANGAM",
-                icon: Icons.brightness_5,
+                icon: Icons.brightness_5_outlined,
                 onTap: () {
-                  if (!game.todayResultDeclared! && game.isCurrentTimeLessThan(false)) {
+                  if (!game.todayResultDeclared! &&
+                      game.isCurrentTimeLessThan(false)) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateBetWidget(
-                          user: user,
-                          game: game,
-                          gameType: "Half Sangam",
-                        ),
+                        builder:
+                            (context) => CreateBetWidget(
+                              user: user,
+                              game: game,
+                              gameType: "Half Sangam",
+                            ),
                       ),
                     );
                   } else {
                     CustomWidget.showSnackBar(
                       "Game is closed for this type",
-                      bgColor: Colors.white,
-                      fgColor: Colors.black,
+                      bgColor: AppColors.cardBackground,
+                      fgColor: AppColors.textPrimary,
                     );
                   }
                 },
-                isEnabled: !game.todayResultDeclared! && game.isCurrentTimeLessThan(false),
+                isEnabled:
+                    !game.todayResultDeclared! &&
+                    game.isCurrentTimeLessThan(false),
               ),
               _buildGameCard(
                 context: context,
                 title: "FULL\nSANGAM",
-                icon: Icons.brightness_7,
+                icon: Icons.brightness_7_outlined,
                 onTap: () {
-                  if (!game.todayResultDeclared! && game.isCurrentTimeLessThan(false)) {
+                  if (!game.todayResultDeclared! &&
+                      game.isCurrentTimeLessThan(false)) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateBetWidget(
-                          user: user,
-                          game: game,
-                          gameType: "Full Sangam",
-                        ),
+                        builder:
+                            (context) => CreateBetWidget(
+                              user: user,
+                              game: game,
+                              gameType: "Full Sangam",
+                            ),
                       ),
                     );
                   } else {
                     CustomWidget.showSnackBar(
                       "Game is closed for this type",
-                      bgColor: Colors.white,
-                      fgColor: Colors.black,
+                      bgColor: AppColors.cardBackground,
+                      fgColor: AppColors.textPrimary,
                     );
                   }
                 },
-                isEnabled: !game.todayResultDeclared! && game.isCurrentTimeLessThan(false),
+                isEnabled:
+                    !game.todayResultDeclared! &&
+                    game.isCurrentTimeLessThan(false),
               ),
               _buildGameCard(
                 context: context,
                 title: "SP\nMOTOR",
-                icon: Icons.motorcycle,
+                icon: Icons.electric_scooter_outlined,
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CreateBetWidget(
-                        user: user,
-                        game: game,
-                        gameType: "SP Motor",
-                      ),
+                      builder:
+                          (context) => CreateBetWidget(
+                            user: user,
+                            game: game,
+                            gameType: "SP Motor",
+                          ),
                     ),
                   );
                 },
@@ -280,16 +249,17 @@ class GameOptionPage extends StatelessWidget {
               _buildGameCard(
                 context: context,
                 title: "DP\nMOTOR",
-                icon: Icons.electric_bike,
+                icon: Icons.electric_bike_outlined,
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CreateBetWidget(
-                        user: user,
-                        game: game,
-                        gameType: "DP Motor",
-                      ),
+                      builder:
+                          (context) => CreateBetWidget(
+                            user: user,
+                            game: game,
+                            gameType: "DP Motor",
+                          ),
                     ),
                   );
                 },
@@ -310,84 +280,180 @@ class GameOptionPage extends StatelessWidget {
     required bool isEnabled,
   }) {
     return GestureDetector(
-      onTap: isEnabled ? onTap : () {
-        CustomWidget.showSnackBar(
-          "Game is closed for this type",
-          bgColor: Colors.white,
-          fgColor: Colors.black,
-        );
-      },
+      onTap:
+          isEnabled
+              ? onTap
+              : () {
+                CustomWidget.showSnackBar(
+                  "Game is closed for this type",
+                  bgColor: AppColors.cardBackground,
+                  fgColor: AppColors.textPrimary,
+                );
+              },
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: isEnabled
-                ? [
-                    const Color(0xFF5B8DB8),
-                    const Color(0xFF4A7BA7),
-                  ]
-                : [
-                    Colors.grey[400]!,
-                    Colors.grey[500]!,
-                  ],
-          ),
+          borderRadius: BorderRadius.circular(16),
+          gradient:
+              isEnabled
+                  ? AppColors.accentGradient
+                  : LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      AppColors.textTertiary.withOpacity(0.5),
+                      AppColors.textSecondary.withOpacity(0.5),
+                    ],
+                  ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 8,
-              offset: const Offset(0, 4),
+              color:
+                  isEnabled
+                      ? AppColors.accent.withOpacity(0.3)
+                      : AppColors.shadowLight,
+              blurRadius: 12,
+              offset: const Offset(0, 6),
             ),
           ],
         ),
         child: Stack(
           children: [
-            // Hexagonal border design
+            // Decorative circles in background
+            Positioned(
+              top: -20,
+              right: -20,
+              child: Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.withOpacity(AppColors.textOnPrimary, 0.1),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: -30,
+              left: -30,
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.withOpacity(AppColors.textOnPrimary, 0.08),
+                ),
+              ),
+            ),
+
+            // Main content
             Center(
               child: Container(
-                width: 120,
-                height: 120,
+                width: 130,
+                height: 130,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(15),
+                  color: AppColors.cardBackground,
+                  borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: Colors.white,
-                    width: 3,
+                    color:
+                        isEnabled
+                            ? AppColors.accent.withOpacity(0.3)
+                            : AppColors.border,
+                    width: 2,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.shadowMedium,
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      icon,
-                      size: 40,
-                      color: const Color(0xFF5B8DB8),
+                    Container(
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(
+                        gradient:
+                            isEnabled
+                                ? AppColors.accentGradient
+                                : const LinearGradient(
+                                  colors: [
+                                    AppColors.textTertiary,
+                                    AppColors.textSecondary,
+                                  ],
+                                ),
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                                isEnabled
+                                    ? AppColors.accent.withOpacity(0.3)
+                                    : AppColors.shadowLight,
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Icon(
+                        icon,
+                        size: 32,
+                        color: AppColors.textOnPrimary,
+                      ),
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xFF5B8DB8),
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        height: 1.1,
+                    const SizedBox(height: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color:
+                              isEnabled
+                                  ? AppColors.textPrimary
+                                  : AppColors.textSecondary,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          height: 1.2,
+                          letterSpacing: 0.5,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            // Hexagonal border effect
-            // CustomPaint(
-            //   painter: HexagonBorderPainter(
-            //     color: Colors.red,
-            //     strokeWidth: 4,
-            //   ),
-            //   size: const Size(150, 150),
-            // ),
+
+            // Disabled overlay
+            if (!isEnabled)
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.overlay.withOpacity(0.1),
+                  ),
+                  child: Center(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.error,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Text(
+                        "CLOSED",
+                        style: TextStyle(
+                          color: AppColors.textOnPrimary,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),
@@ -403,10 +469,11 @@ class HexagonBorderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = strokeWidth
-      ..style = PaintingStyle.stroke;
+    final paint =
+        Paint()
+          ..color = color
+          ..strokeWidth = strokeWidth
+          ..style = PaintingStyle.stroke;
 
     final path = Path();
     final centerX = size.width / 2;
@@ -415,7 +482,7 @@ class HexagonBorderPainter extends CustomPainter {
 
     // Create hexagon path
     for (int i = 0; i < 6; i++) {
-      final angle = (i * 60) * (3.14159 / 180);
+      final angle = (i * 60) * (pi / 180);
       final x = centerX + radius * cos(angle);
       final y = centerY + radius * sin(angle);
 
@@ -433,4 +500,3 @@ class HexagonBorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-
